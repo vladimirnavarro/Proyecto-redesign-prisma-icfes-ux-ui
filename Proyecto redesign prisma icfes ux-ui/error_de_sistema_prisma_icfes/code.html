@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c3c6d1",
+                        "surface": "#FFFFFF",
+                        "text-body": "#333333",
+                        "on-secondary-container": "#054a86",
+                        "secondary-fixed": "#d4e3ff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-container": "#4f3d00",
+                        "inverse-primary": "#a7c8ff",
+                        "surface-container-highest": "#e1e3e4",
+                        "control-gray": "#555555",
+                        "primary-container": "#003366",
+                        "primary": "#001e40",
+                        "on-secondary-fixed": "#001c39",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d9dadb",
+                        "on-primary-fixed-variant": "#1f477b",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-fixed": "#ffe08b",
+                        "success": "#2E7D32",
+                        "on-background": "#191c1d",
+                        "tertiary-fixed-dim": "#f1c100",
+                        "primary-fixed": "#d5e3ff",
+                        "tertiary-container": "#d0a600",
+                        "on-secondary-fixed-variant": "#004883",
+                        "on-error": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "surface-tint": "#3a5f94",
+                        "surface-bright": "#f8f9fa",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "surface-variant": "#e1e3e4",
+                        "secondary-container": "#8bbbfe",
+                        "tertiary": "#745b00",
+                        "border-default": "#CCCCCC",
+                        "inverse-surface": "#2e3132",
+                        "error": "#C62828",
+                        "on-surface": "#191c1d",
+                        "text-dark": "#202020",
+                        "on-primary-fixed": "#001b3c",
+                        "on-surface-variant": "#43474f",
+                        "secondary": "#2a609d",
+                        "secondary-fixed-dim": "#a4c9ff",
+                        "on-primary": "#ffffff",
+                        "background": "#f8f9fa",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#584400",
+                        "on-primary-container": "#799dd6",
+                        "focus-blue": "#0066CC",
+                        "outline": "#737780"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1rem",
+                        "stack-lg": "2rem",
+                        "gutter": "1.5rem",
+                        "margin-desktop": "2rem",
+                        "stack-sm": "0.5rem",
+                        "container-max": "1200px",
+                        "margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "headline-h2": ["Montserrat"],
+                        "input-text": ["Open Sans"],
+                        "button-text": ["Montserrat"],
+                        "body-md": ["Open Sans"],
+                        "label-md": ["Open Sans"],
+                        "microcopy": ["Open Sans"],
+                        "headline-h4": ["Montserrat"],
+                        "headline-h1": ["Montserrat"],
+                        "headline-h3": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-h2": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "input-text": ["16px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "button-text": ["16px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["16px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "microcopy": ["14px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "headline-h4": ["16px", {"lineHeight": "22px", "fontWeight": "600"}],
+                        "headline-h1": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-h3": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-text-body">
+<!-- GOV.CO Top Bar -->
+<header class="bg-on-secondary-fixed-variant border-b border-primary-container flex justify-between items-center h-10 px-6 md:px-margin-desktop w-full z-[60] top-0 fixed">
+<div class="flex items-center gap-2">
+<span class="font-headline-h4 text-headline-h4 text-on-secondary uppercase tracking-wider">GOV.CO</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-secondary opacity-90 hover:underline flex items-center">
+<span class="material-symbols-outlined text-[20px]">accessibility_new</span>
+</button>
+<button class="text-on-secondary opacity-90 hover:underline flex items-center">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+</header>
+<!-- PRISMA ICFES Navigation Bar -->
+<nav class="mt-10 bg-primary-container shadow-sm flex flex-col w-full sticky top-10 z-50">
+<div class="max-w-container-max mx-auto w-full px-6 md:px-margin-desktop py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-headline-h1 text-headline-h1 text-on-primary font-bold">PRISMA ICFES</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-opacity pb-2 font-label-md text-label-md" href="#">Inscripción</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-opacity pb-2 font-label-md text-label-md" href="#">Citación</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-opacity pb-2 font-label-md text-label-md" href="#">Resultados</a>
+<a class="text-on-primary opacity-80 hover:opacity-100 transition-opacity pb-2 font-label-md text-label-md" href="#">Mi Perfil</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-on-primary font-label-md text-label-md hidden lg:block">Bienvenido, Usuario</div>
+<button class="bg-tertiary-fixed text-primary px-4 py-2 rounded-lg font-button-text text-button-text hover:bg-tertiary-fixed-dim transition-colors scale-95 active:scale-90">
+                    Cerrar Sesión
+                </button>
+<div class="flex gap-2 text-on-primary">
+<span class="material-symbols-outlined cursor-pointer hover:bg-primary p-1 rounded transition-colors">contrast</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-primary p-1 rounded transition-colors">format_size</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content: Error State -->
+<main class="flex-grow flex items-center justify-center py-stack-lg px-margin-mobile md:px-margin-desktop">
+<div class="max-w-[640px] w-full bg-surface rounded-xl shadow-sm border border-outline-variant p-8 md:p-12 text-center">
+<!-- Error Icon Container -->
+<div class="mb-stack-lg">
+<div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-error-container text-error">
+<span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'FILL' 1;">error</span>
+</div>
+</div>
+<!-- Error Messages -->
+<h1 class="font-headline-h1 text-headline-h1 text-text-dark mb-stack-sm">
+                No pudimos completar la operación
+            </h1>
+<div class="bg-surface-container-low border-l-4 border-error p-6 mb-stack-lg text-left rounded-r-lg">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Hubo un problema de conexión con el servidor de pagos. Por favor, intenta de nuevo en unos minutos.
+                </p>
+</div>
+<!-- Error Reference Details -->
+<div class="mb-stack-lg py-4 border-y border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4 text-microcopy font-microcopy text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="font-bold uppercase tracking-tight">Referencia del error:</span>
+<span class="font-mono bg-surface-container px-2 py-0.5 rounded">ERR-PAY-503-0924</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+<span>Línea nacional: 01 8000 519 535</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto bg-[#FFCC00] text-primary-container px-8 py-3 rounded-lg font-button-text text-button-text shadow-sm hover:brightness-95 transition-all focus:ring-2 focus:ring-focus-blue">
+                    Intentar nuevamente
+                </button>
+<button class="w-full sm:w-auto border border-primary text-primary px-8 py-3 rounded-lg font-button-text text-button-text hover:bg-surface-container-low transition-all focus:ring-2 focus:ring-focus-blue">
+                    Ir al inicio
+                </button>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-highest border-t border-outline-variant mt-auto">
+<div class="max-w-container-max mx-auto px-margin-desktop py-stack-lg flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start">
+<div class="font-headline-h3 text-headline-h3 text-primary mb-2">ICFES</div>
+<p class="font-microcopy text-microcopy text-on-surface-variant text-center md:text-left">
+                    © 2024 ICFES - Instituto Colombiano para la Evaluación de la Educación. Todos los derechos reservados.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-2">
+<a class="text-on-surface-variant hover:text-focus-blue transition-colors underline font-body-md text-body-md" href="#">Política de privacidad</a>
+<a class="text-on-surface-variant hover:text-focus-blue transition-colors underline font-body-md text-body-md" href="#">Términos y condiciones</a>
+<a class="text-on-surface-variant hover:text-focus-blue transition-colors underline font-body-md text-body-md" href="#">Mapa del sitio</a>
+<a class="text-on-surface-variant hover:text-focus-blue transition-colors underline font-body-md text-body-md" href="#">Contacto</a>
+</div>
+</div>
+</footer>
+</body></html>
