@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pre-inscripción – Paso 3: Información Académica - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',secondary:'#2a609d','on-secondary':'#ffffff','tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','focus-blue':'#0066CC',surface:'#FFFFFF',background:'#f8f9fa','surface-container':'#edeeef','surface-container-low':'#f3f4f5','surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1',outline:'#737780','on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333',success:'#2E7D32',error:'#C62828','border-default':'#CCCCCC','secondary-fixed':'#d4e3ff','on-secondary-container':'#054a86'},fontFamily:{sans:['Open Sans','sans-serif'],heading:['Montserrat','sans-serif']}}}}
+</script>
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+  .card-shadow{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  input:focus,select:focus{outline:none;}
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1" aria-label="Accesibilidad"><span class="material-symbols-outlined text-lg">accessibility_new</span></button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="bg-[#003366] shadow-md w-full sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+      </a>
+      <div class="hidden md:flex gap-1">
+        <a href="oferta_examenes.html" class="text-white bg-white/20 px-3 py-2 rounded-lg font-bold text-sm border-b-2 border-[#ffe08b]">Inscripción</a>
+        <a href="citacion.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Citación</a>
+        <a href="#" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Resultados</a>
+        <a href="perfil.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Mi Perfil</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="text-right hidden sm:block">
+        <p class="text-white font-semibold text-sm">John Doe</p>
+        <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
+      </div>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-6xl mx-auto w-full px-6 py-8" role="main">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Miga de pan" class="text-xs text-on-surface-variant mb-5">
+    <a href="dashboard.html" class="hover:text-[#0066CC]">Inicio</a>
+    <span class="mx-2">/</span>
+    <a href="oferta_examenes.html" class="hover:text-[#0066CC]">Inscripción</a>
+    <span class="mx-2">/</span>
+    <span class="text-primary font-semibold">Información académica</span>
+  </nav>
+
+  <!-- Page Title -->
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
+    <div class="border-l-4 border-[#d0a600] pl-4">
+      <h1 class="font-heading font-bold text-2xl text-primary">Pre-inscripción al Examen</h1>
+      <p class="text-on-surface-variant text-sm mt-0.5">Saber 11° · Convocatoria 2024-1</p>
+    </div>
+    <span class="bg-[#003366] text-white font-heading font-bold text-sm px-4 py-1.5 rounded-full">Paso 3 de 5</span>
+  </div>
+
+  <!-- Stepper -->
+  <div class="bg-white rounded-xl card-shadow border border-outline-variant mb-6 overflow-hidden" role="navigation" aria-label="Pasos del proceso">
+    <div class="flex" role="list">
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-[#f3f4f5] border-r border-outline-variant" role="listitem">
+        <span class="material-symbols-outlined text-[#2E7D32] text-xl">check_circle</span>
+        <span class="font-semibold text-sm text-[#2E7D32] hidden sm:inline">1. Examen</span>
+      </div>
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-[#f3f4f5] border-r border-outline-variant" role="listitem">
+        <span class="material-symbols-outlined text-[#2E7D32] text-xl">check_circle</span>
+        <span class="font-semibold text-sm text-[#2E7D32] hidden sm:inline">2. Datos personales</span>
+      </div>
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-white border-b-4 border-[#0066CC] border-r border-r-outline-variant" role="listitem" aria-current="step">
+        <div class="w-6 h-6 rounded-full bg-[#0066CC] text-white flex items-center justify-center text-xs font-bold ring-4 ring-[#0066CC]/15 flex-shrink-0">3</div>
+        <span class="font-bold text-sm text-[#0066CC] hidden sm:inline">Inf. académica</span>
+      </div>
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-[#f3f4f5] border-r border-outline-variant opacity-60" role="listitem">
+        <div class="w-6 h-6 rounded-full bg-[#737780] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">4</div>
+        <span class="font-semibold text-sm hidden sm:inline">Sede</span>
+      </div>
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-[#f3f4f5] opacity-60" role="listitem">
+        <div class="w-6 h-6 rounded-full bg-[#737780] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">5</div>
+        <span class="font-semibold text-sm hidden sm:inline">Confirmación</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Form -->
+    <div class="lg:col-span-2 space-y-4">
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6 pb-3 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">school</span>
+          <h2 class="font-heading font-semibold text-lg text-primary">Detalles de formación académica</h2>
+        </div>
+        <div class="space-y-5">
+          <!-- Nivel educativo -->
+          <div>
+            <label for="edu-nivel" class="block font-semibold text-sm text-text-body mb-1">Nivel educativo actual <span class="text-error">*</span></label>
+            <select id="edu-nivel" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white" aria-required="true">
+              <option value="" disabled selected>Seleccione su nivel actual</option>
+              <option value="bachillerato" selected>Educación Media (Bachillerato)</option>
+              <option value="tecnico">Técnico Profesional</option>
+              <option value="tecnologo">Tecnólogo</option>
+              <option value="pregrado">Universitario (Pregrado)</option>
+            </select>
+          </div>
+
+          <!-- Institución -->
+          <div>
+            <label for="edu-inst" class="block font-semibold text-sm text-text-body mb-1">Nombre de la institución <span class="text-error">*</span></label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
+              <input id="edu-inst" type="text" placeholder="Escriba el nombre o código DANE..." value="Colegio Nacional Nicolás Esguerra"
+                class="w-full pl-10 pr-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true" autocomplete="off" oninput="toggleDropdown(this.value)"/>
+              <!-- Autocomplete dropdown -->
+              <div id="inst-dropdown" class="hidden absolute z-20 w-full mt-1 bg-white border border-outline-variant rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                <div onclick="selectInst('Colegio Nacional Nicolás Esguerra')" class="px-4 py-2.5 hover:bg-[#f3f4f5] cursor-pointer text-sm border-b border-outline-variant">Colegio Nacional Nicolás Esguerra</div>
+                <div onclick="selectInst('I.E.D. Técnica Distrital Los Alpes')" class="px-4 py-2.5 hover:bg-[#f3f4f5] cursor-pointer text-sm border-b border-outline-variant">I.E.D. Técnica Distrital Los Alpes</div>
+                <div onclick="selectInst('Liceo Nacional Femenino')" class="px-4 py-2.5 hover:bg-[#f3f4f5] cursor-pointer text-sm">Liceo Nacional Femenino</div>
+              </div>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-1">Si no encuentra su institución, contacte soporte al ciudadano.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- Año de graduación -->
+            <div>
+              <label for="edu-anio" class="block font-semibold text-sm text-text-body mb-1">Año de graduación esperado <span class="text-error">*</span></label>
+              <input id="edu-anio" type="number" min="1950" max="2030" placeholder="AAAA" value="2026"
+                class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+            </div>
+            <!-- Grado -->
+            <div>
+              <label for="edu-grado" class="block font-semibold text-sm text-text-body mb-1">Grado actual <span class="text-error">*</span></label>
+              <select id="edu-grado" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white" aria-required="true">
+                <option value="">Seleccione grado</option>
+                <option value="10" selected>Grado 10°</option>
+                <option value="11">Grado 11°</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Programa académico -->
+          <div>
+            <label for="edu-prog" class="block font-semibold text-sm text-text-body mb-1">Programa o modalidad <span class="text-error">*</span></label>
+            <input id="edu-prog" type="text" placeholder="Ej: Bachillerato Académico" value="Bachillerato Académico"
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+          </div>
+
+          <!-- Info Alert -->
+          <div class="flex gap-3 bg-[#d4e3ff]/30 p-4 rounded-lg border border-[#a4c9ff]">
+            <span class="material-symbols-outlined text-[#2a609d] text-xl flex-shrink-0">info</span>
+            <p class="text-sm text-[#001c39]">Asegúrese de que los datos coincidan exactamente con su diploma o certificado de matrícula. La información será verificada con el SNIES.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <a href="preinscripcion_datos.html" class="flex items-center gap-2 border border-[#003366] text-[#003366] font-heading font-bold px-6 py-3 rounded-lg hover:bg-[#003366]/5 transition-colors text-sm">
+          <span class="material-symbols-outlined text-base">arrow_back</span>
+          Volver
+        </a>
+        <a href="preinscripcion_sede.html" class="flex items-center gap-2 bg-[#FFCC00] text-[#001e40] font-heading font-bold px-8 py-3 rounded-lg hover:bg-[#f1c100] transition-all shadow-sm text-sm">
+          Continuar
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar Info -->
+    <div class="space-y-4">
+      <div class="bg-[#003366] text-white rounded-xl p-5">
+        <h3 class="font-heading font-bold text-base mb-3">¿Por qué es importante?</h3>
+        <p class="text-white/80 text-sm mb-4">La información académica nos permite asignarle la prueba correcta y vincular sus resultados con el historial educativo nacional.</p>
+        <ul class="space-y-2 text-sm text-white/80">
+          <li class="flex gap-2 items-start"><span class="material-symbols-outlined text-[#ffe08b] text-base flex-shrink-0 mt-0.5">verified</span>Verificación automática con el SNIES.</li>
+          <li class="flex gap-2 items-start"><span class="material-symbols-outlined text-[#ffe08b] text-base flex-shrink-0 mt-0.5">location_on</span>Determinación de zona para asignación de sede.</li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant p-5">
+        <h4 class="font-heading font-semibold text-sm text-primary mb-2">¿Necesita ayuda?</h4>
+        <p class="text-xs text-on-surface-variant mb-3">Si no encuentra su institución en el buscador, contacte soporte técnico.</p>
+        <div class="flex items-center gap-2 text-[#0066CC] font-semibold text-sm">
+          <span class="material-symbols-outlined text-base">call</span>
+          <span>01 8000 519535</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+    <nav class="flex gap-4 text-xs">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+      <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline">Centro de ayuda</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+function toggleDropdown(val) {
+  const dd = document.getElementById('inst-dropdown');
+  dd.classList.toggle('hidden', val.length < 2);
+}
+function selectInst(name) {
+  document.getElementById('edu-inst').value = name;
+  document.getElementById('inst-dropdown').classList.add('hidden');
+}
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#edu-inst') && !e.target.closest('#inst-dropdown')) {
+    document.getElementById('inst-dropdown').classList.add('hidden');
+  }
+});
+</script>
+</body>
+</html>

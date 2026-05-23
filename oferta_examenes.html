@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Oferta de Exámenes - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',
+      'on-primary-container':'#799dd6',secondary:'#2a609d','on-secondary':'#ffffff',
+      'tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','focus-blue':'#0066CC',
+      'on-secondary-fixed-variant':'#004883','surface':'#FFFFFF','background':'#f8f9fa',
+      'surface-container':'#edeeef','surface-container-low':'#f3f4f5',
+      'surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1','outline':'#737780',
+      'on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333',
+      'success':'#2E7D32','error':'#C62828','secondary-fixed':'#d4e3ff',
+    },
+    fontFamily:{ sans:['Open Sans','sans-serif'], heading:['Montserrat','sans-serif'] }
+  }}
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  .card-shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .exam-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-color: #0066CC; }
+  .exam-card { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1 hover:underline" aria-label="Accesibilidad"><span class="material-symbols-outlined text-lg">accessibility_new</span><span class="hidden sm:inline">Accesibilidad</span></button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="bg-[#003366] shadow-md w-full sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+      </a>
+      <div class="hidden md:flex gap-1">
+        <a href="oferta_examenes.html" class="text-white bg-white/20 px-3 py-2 rounded-lg font-bold text-sm border-b-2 border-[#ffe08b]" aria-current="page">Inscripción</a>
+        <a href="citacion.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Citación</a>
+        <a href="#" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Resultados</a>
+        <a href="perfil.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Mi Perfil</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="text-right hidden sm:block">
+        <p class="text-white font-semibold text-sm">John Doe</p>
+        <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
+      </div>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-6xl mx-auto w-full px-6 py-8" role="main">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Miga de pan" class="text-xs text-on-surface-variant mb-5">
+    <a href="dashboard.html" class="hover:text-[#0066CC]">Inicio</a>
+    <span class="mx-2">/</span>
+    <span class="text-primary font-semibold">Inscripción</span>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="mb-8 border-l-4 border-[#d0a600] pl-4">
+    <h1 class="font-heading font-bold text-2xl text-primary mb-1">¿A cuál examen deseas inscribirte?</h1>
+    <p class="text-on-surface-variant text-sm max-w-2xl">Selecciona el examen de acuerdo a tu nivel educativo actual. Asegúrate de cumplir con los requisitos antes de iniciar el proceso.</p>
+  </div>
+
+  <!-- Category: Educación Media -->
+  <section class="mb-10" aria-labelledby="cat-media">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-9 h-9 rounded-full bg-[#003366] flex items-center justify-center flex-shrink-0">
+        <span class="material-symbols-outlined text-white text-lg">school</span>
+      </div>
+      <h2 id="cat-media" class="font-heading font-bold text-xl text-primary">Educación Media</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <!-- Saber 11 -->
+      <article class="bg-white rounded-xl card-shadow border border-outline-variant p-6 flex flex-col exam-card">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-[#d4e3ff] rounded-xl flex items-center justify-center">
+            <span class="material-symbols-outlined text-[#2a609d] text-2xl">menu_book</span>
+          </div>
+          <span class="inline-flex items-center gap-1 bg-[#e8f5e9] text-[#2E7D32] text-xs font-bold px-3 py-1 rounded-full">
+            <span class="w-1.5 h-1.5 bg-[#2E7D32] rounded-full"></span>
+            Abierta
+          </span>
+        </div>
+        <h3 class="font-heading font-bold text-lg text-text-dark mb-2">Saber 11°</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed mb-3 flex-grow">Para estudiantes que terminan el grado undécimo y buscan ingresar a la educación superior.</p>
+        <div class="border-t border-outline-variant pt-3 mb-4 grid grid-cols-2 gap-2 text-xs text-on-surface-variant">
+          <div><span class="font-semibold block">Período</span>6 ene – 20 feb 2026</div>
+          <div><span class="font-semibold block">Costo</span>$224.000</div>
+        </div>
+        <a href="preinscripcion_datos.html?examen=saber11" class="w-full bg-[#003366] text-white font-heading font-bold py-3 rounded-lg hover:bg-[#001e40] transition-colors flex items-center justify-center gap-2 text-sm">
+          <span class="material-symbols-outlined text-base">assignment_add</span>
+          Iniciar inscripción
+        </a>
+      </article>
+
+      <!-- Pre-Saber -->
+      <article class="bg-white rounded-xl card-shadow border border-outline-variant p-6 flex flex-col exam-card">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-[#d4e3ff] rounded-xl flex items-center justify-center">
+            <span class="material-symbols-outlined text-[#2a609d] text-2xl">edit_note</span>
+          </div>
+          <span class="inline-flex items-center gap-1 bg-[#e8f5e9] text-[#2E7D32] text-xs font-bold px-3 py-1 rounded-full">
+            <span class="w-1.5 h-1.5 bg-[#2E7D32] rounded-full"></span>
+            Abierta
+          </span>
+        </div>
+        <h3 class="font-heading font-bold text-lg text-text-dark mb-2">Pre-Saber</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed mb-3 flex-grow">Prueba de ensayo para estudiantes de grado 10° que deseen familiarizarse con el examen Saber 11.</p>
+        <div class="border-t border-outline-variant pt-3 mb-4 grid grid-cols-2 gap-2 text-xs text-on-surface-variant">
+          <div><span class="font-semibold block">Período</span>6 ene – 20 feb 2026</div>
+          <div><span class="font-semibold block">Costo</span>$112.000</div>
+        </div>
+        <a href="preinscripcion_datos.html?examen=presaber" class="w-full bg-[#003366] text-white font-heading font-bold py-3 rounded-lg hover:bg-[#001e40] transition-colors flex items-center justify-center gap-2 text-sm">
+          <span class="material-symbols-outlined text-base">assignment_add</span>
+          Iniciar inscripción
+        </a>
+      </article>
+
+      <!-- Validación -->
+      <article class="bg-white rounded-xl card-shadow border border-outline-variant p-6 flex flex-col exam-card">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-[#d4e3ff] rounded-xl flex items-center justify-center">
+            <span class="material-symbols-outlined text-[#2a609d] text-2xl">verified_user</span>
+          </div>
+          <span class="inline-flex items-center gap-1 bg-[#e8f5e9] text-[#2E7D32] text-xs font-bold px-3 py-1 rounded-full">
+            <span class="w-1.5 h-1.5 bg-[#2E7D32] rounded-full"></span>
+            Abierta
+          </span>
+        </div>
+        <h3 class="font-heading font-bold text-lg text-text-dark mb-2">Validación del Bachillerato</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed mb-3 flex-grow">Para personas mayores de 18 años que no han culminado sus estudios y desean obtener el título de bachiller.</p>
+        <div class="border-t border-outline-variant pt-3 mb-4 grid grid-cols-2 gap-2 text-xs text-on-surface-variant">
+          <div><span class="font-semibold block">Período</span>6 ene – 20 feb 2026</div>
+          <div><span class="font-semibold block">Costo</span>$179.000</div>
+        </div>
+        <a href="preinscripcion_datos.html?examen=validacion" class="w-full bg-[#003366] text-white font-heading font-bold py-3 rounded-lg hover:bg-[#001e40] transition-colors flex items-center justify-center gap-2 text-sm">
+          <span class="material-symbols-outlined text-base">assignment_add</span>
+          Iniciar inscripción
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Category: Educación Superior -->
+  <section class="mb-10" aria-labelledby="cat-superior">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-9 h-9 rounded-full bg-[#003366] flex items-center justify-center flex-shrink-0">
+        <span class="material-symbols-outlined text-white text-lg">history_edu</span>
+      </div>
+      <h2 id="cat-superior" class="font-heading font-bold text-xl text-primary">Educación Superior</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <!-- Saber Pro -->
+      <article class="bg-white rounded-xl card-shadow border border-outline-variant p-6 flex flex-col exam-card">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-[#d4e3ff] rounded-xl flex items-center justify-center">
+            <span class="material-symbols-outlined text-[#2a609d] text-2xl">workspace_premium</span>
+          </div>
+          <span class="inline-flex items-center gap-1 bg-[#e8f5e9] text-[#2E7D32] text-xs font-bold px-3 py-1 rounded-full">
+            <span class="w-1.5 h-1.5 bg-[#2E7D32] rounded-full"></span>
+            Abierta
+          </span>
+        </div>
+        <h3 class="font-heading font-bold text-lg text-text-dark mb-2">Saber Pro</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed mb-3 flex-grow">Evaluación de calidad de educación superior para estudiantes de carreras profesionales universitarias.</p>
+        <div class="border-t border-outline-variant pt-3 mb-4 grid grid-cols-2 gap-2 text-xs text-on-surface-variant">
+          <div><span class="font-semibold block">Período</span>6 ene – 20 feb 2026</div>
+          <div><span class="font-semibold block">Costo</span>$355.000</div>
+        </div>
+        <a href="preinscripcion_datos.html?examen=saberpro" class="w-full bg-[#003366] text-white font-heading font-bold py-3 rounded-lg hover:bg-[#001e40] transition-colors flex items-center justify-center gap-2 text-sm">
+          <span class="material-symbols-outlined text-base">assignment_add</span>
+          Iniciar inscripción
+        </a>
+      </article>
+
+      <!-- Saber TyT -->
+      <article class="bg-white rounded-xl card-shadow border border-outline-variant p-6 flex flex-col exam-card">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-12 h-12 bg-[#d4e3ff] rounded-xl flex items-center justify-center">
+            <span class="material-symbols-outlined text-[#2a609d] text-2xl">engineering</span>
+          </div>
+          <span class="inline-flex items-center gap-1 bg-[#e8f5e9] text-[#2E7D32] text-xs font-bold px-3 py-1 rounded-full">
+            <span class="w-1.5 h-1.5 bg-[#2E7D32] rounded-full"></span>
+            Abierta
+          </span>
+        </div>
+        <h3 class="font-heading font-bold text-lg text-text-dark mb-2">Saber TyT</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed mb-3 flex-grow">Para estudiantes de programas técnicos y tecnológicos que han cursado el 75% de sus créditos académicos.</p>
+        <div class="border-t border-outline-variant pt-3 mb-4 grid grid-cols-2 gap-2 text-xs text-on-surface-variant">
+          <div><span class="font-semibold block">Período</span>6 ene – 20 feb 2026</div>
+          <div><span class="font-semibold block">Costo</span>$224.000</div>
+        </div>
+        <a href="preinscripcion_datos.html?examen=sabertyt" class="w-full bg-[#003366] text-white font-heading font-bold py-3 rounded-lg hover:bg-[#001e40] transition-colors flex items-center justify-center gap-2 text-sm">
+          <span class="material-symbols-outlined text-base">assignment_add</span>
+          Iniciar inscripción
+        </a>
+      </article>
+
+      <!-- Próximas convocatorias placeholder -->
+      <div class="flex flex-col items-center justify-center border-2 border-dashed border-outline-variant rounded-xl p-8 text-center bg-[#f8f9fa]">
+        <span class="material-symbols-outlined text-outline text-5xl mb-3">upcoming</span>
+        <p class="font-heading font-semibold text-sm text-on-surface-variant mb-1">Próximas convocatorias</p>
+        <p class="text-xs text-on-surface-variant">Nuevos exámenes serán publicados próximamente.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Info notice -->
+  <div class="bg-white rounded-xl card-shadow border border-outline-variant p-5 flex items-start gap-4">
+    <span class="material-symbols-outlined text-[#2a609d] text-2xl flex-shrink-0 mt-0.5">info</span>
+    <div>
+      <p class="font-heading font-semibold text-sm text-primary mb-1">¿Tiene dudas sobre cuál examen le corresponde?</p>
+      <p class="text-on-surface-variant text-sm">Consulte la <a href="ayuda.html" class="text-[#0066CC] underline">guía de exámenes</a> o comuníquese con nuestra línea de atención: <strong>(601) 5144370</strong>, lunes a viernes 8am–4pm.</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-6">
+      <div>
+        <span class="font-heading font-bold text-primary block mb-1">PRISMA ICFES</span>
+        <p class="text-on-surface-variant text-xs max-w-xs">Instituto Colombiano para la Evaluación de la Educación.</p>
+        <p class="text-on-surface-variant text-xs mt-1">Línea ciudadana: (601) 5144370 | Lun–Vie 8am–4pm</p>
+      </div>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 text-xs">
+        <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Política de privacidad</a>
+        <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Términos y condiciones</a>
+        <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Mapa del sitio</a>
+        <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Centro de ayuda</a>
+      </nav>
+    </div>
+    <div class="border-t border-[#c3c6d1] pt-4 flex justify-between items-center">
+      <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+      <span class="font-heading font-bold text-on-surface-variant/40 uppercase tracking-widest text-xs">GOV.CO</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

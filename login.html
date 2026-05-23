@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Iniciar Sesión - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',
+      'on-primary-container':'#799dd6',secondary:'#2a609d','on-secondary':'#ffffff',
+      'tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','focus-blue':'#0066CC',
+      'on-secondary-fixed-variant':'#004883','surface':'#FFFFFF','background':'#f8f9fa',
+      'surface-container':'#edeeef','surface-container-low':'#f3f4f5',
+      'surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1',
+      'outline':'#737780','on-surface':'#191c1d','on-surface-variant':'#43474f',
+      'text-body':'#333333','success':'#2E7D32','error':'#C62828',
+      'border-default':'#CCCCCC','secondary-fixed':'#d4e3ff',
+    },
+    fontFamily: { sans:['Open Sans','sans-serif'], heading:['Montserrat','sans-serif'] }
+  }}
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  .hero-gradient { background: linear-gradient(150deg, #001e40 0%, #003366 60%, #1f477b 100%); }
+  .card-shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  input:focus { outline: none; }
+  .tab-active { color:#0066CC; border-bottom:3px solid #0066CC; }
+  .tab-inactive { color:#737780; border-bottom:3px solid transparent; }
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-50">
+  <a href="index.html" class="font-heading font-bold text-white uppercase tracking-wider text-sm hover:underline">GOV.CO</a>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 hover:opacity-100 flex items-center gap-1 text-xs hover:underline" aria-label="Accesibilidad">
+      <span class="material-symbols-outlined text-lg">accessibility_new</span>
+      <span class="hidden sm:inline">Accesibilidad</span>
+    </button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración">
+      <span class="material-symbols-outlined text-lg">settings</span>
+    </button>
+  </div>
+</header>
+
+<main class="flex-grow flex flex-col md:flex-row" role="main">
+  <!-- Left: Branding -->
+  <section class="hidden md:flex md:w-5/12 hero-gradient relative overflow-hidden flex-col justify-center items-center px-10 py-16 text-white" aria-hidden="true">
+    <div class="absolute inset-0 opacity-5" style="background-image:radial-gradient(circle at 2px 2px, white 1px, transparent 0);background-size:40px 40px;"></div>
+    <div class="relative z-10 text-center max-w-sm">
+      <div class="flex items-center justify-center gap-3 mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-14 h-12 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <div class="text-left">
+          <h1 class="font-heading font-extrabold text-4xl leading-none">PRISMA</h1>
+          <p class="text-[#799dd6] text-xs font-bold tracking-widest uppercase">ICFES</p>
+        </div>
+      </div>
+      <h2 class="font-heading font-bold text-xl mb-4">Portal de Evaluación Educativa Nacional</h2>
+      <p class="text-white/75 text-sm leading-relaxed mb-8">Gestione sus procesos de evaluación, consulte citaciones y resultados de manera ágil y segura.</p>
+      <div class="grid grid-cols-2 gap-3 text-left">
+        <div class="bg-white/10 rounded-lg p-3 border border-white/20">
+          <span class="material-symbols-outlined text-[#ffe08b] text-xl mb-1 block">verified_user</span>
+          <p class="text-xs text-white/80">Portal 100% seguro y oficial</p>
+        </div>
+        <div class="bg-white/10 rounded-lg p-3 border border-white/20">
+          <span class="material-symbols-outlined text-[#ffe08b] text-xl mb-1 block">devices</span>
+          <p class="text-xs text-white/80">Accede desde cualquier dispositivo</p>
+        </div>
+        <div class="bg-white/10 rounded-lg p-3 border border-white/20">
+          <span class="material-symbols-outlined text-[#ffe08b] text-xl mb-1 block">support_agent</span>
+          <p class="text-xs text-white/80">Soporte al ciudadano disponible</p>
+        </div>
+        <div class="bg-white/10 rounded-lg p-3 border border-white/20">
+          <span class="material-symbols-outlined text-[#ffe08b] text-xl mb-1 block">assignment_turned_in</span>
+          <p class="text-xs text-white/80">Proceso guiado paso a paso</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Right: Login Form -->
+  <section class="flex-grow flex items-center justify-center p-6 md:p-10 bg-surface-container-low">
+    <div class="w-full max-w-md">
+      <!-- Mobile Brand -->
+      <div class="md:hidden text-center mb-6">
+        <div class="flex items-center justify-center gap-2 mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#003366]">
+            <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+            <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+            <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+            <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+          </svg>
+          <span class="font-heading font-extrabold text-xl text-primary">PRISMA ICFES</span>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant p-8">
+        <h2 class="font-heading font-bold text-2xl text-primary mb-1 text-center">Iniciar sesión</h2>
+        <p class="text-on-surface-variant text-sm text-center mb-6">Seleccione su método de ingreso</p>
+
+        <!-- Error banner (hidden by default) -->
+        <div id="error-banner" class="hidden mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-start gap-2" role="alert">
+          <span class="material-symbols-outlined text-error text-xl flex-shrink-0">error</span>
+          <p class="text-error text-sm">Usuario o contraseña incorrectos. Por favor intente de nuevo.</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex border-b border-outline-variant mb-6" role="tablist">
+          <button id="tab-email" role="tab" aria-selected="true" aria-controls="panel-email"
+            class="flex-1 pb-3 font-heading font-semibold text-sm tab-active transition-all">
+            Correo / Usuario
+          </button>
+          <button id="tab-doc" role="tab" aria-selected="false" aria-controls="panel-doc"
+            class="flex-1 pb-3 font-heading font-semibold text-sm tab-inactive transition-all">
+            Documento de identidad
+          </button>
+        </div>
+
+        <!-- Panel Email -->
+        <div id="panel-email" role="tabpanel" aria-labelledby="tab-email">
+          <div class="space-y-4">
+            <div>
+              <label for="email" class="block font-semibold text-sm text-text-body mb-1">Correo electrónico o usuario</label>
+              <input id="email" type="text" autocomplete="username" placeholder="ejemplo@correo.com"
+                class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"
+                aria-required="true"/>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label for="password" class="block font-semibold text-sm text-text-body">Contraseña</label>
+                <a href="recuperar.html" class="text-[#0066CC] text-xs hover:underline">¿Olvidó su contraseña?</a>
+              </div>
+              <div class="relative">
+                <input id="password" type="password" autocomplete="current-password" placeholder="••••••••"
+                  class="w-full px-4 py-3 pr-12 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"
+                  aria-required="true"/>
+                <button type="button" id="toggle-pw" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" aria-label="Mostrar contraseña">
+                  <span class="material-symbols-outlined text-xl">visibility</span>
+                </button>
+              </div>
+            </div>
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input type="checkbox" class="w-4 h-4 rounded border-[#CCCCCC] text-[#0066CC] focus:ring-[#0066CC]"/>
+              <span class="text-on-surface-variant text-sm">Recordarme</span>
+            </label>
+            <button onclick="handleLogin()" class="w-full bg-[#FFCC00] text-[#001e40] font-heading font-bold py-3.5 rounded-lg hover:bg-[#f1c100] active:scale-[0.98] transition-all shadow-sm flex justify-center items-center gap-2 text-base">
+              Ingresar
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Panel Document (hidden) -->
+        <div id="panel-doc" role="tabpanel" aria-labelledby="tab-doc" class="hidden">
+          <div class="space-y-4">
+            <div>
+              <label for="doc-type" class="block font-semibold text-sm text-text-body mb-1">Tipo de documento</label>
+              <select id="doc-type" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white">
+                <option value="">Seleccione tipo</option>
+                <option value="cc">Cédula de ciudadanía</option>
+                <option value="ti">Tarjeta de identidad</option>
+                <option value="ce">Cédula de extranjería</option>
+                <option value="ppt">Permiso por Protección Temporal</option>
+              </select>
+            </div>
+            <div>
+              <label for="doc-num" class="block font-semibold text-sm text-text-body mb-1">Número de documento</label>
+              <input id="doc-num" type="text" placeholder="Ingrese su número de documento"
+                class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+            </div>
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label for="password2" class="block font-semibold text-sm text-text-body">Contraseña</label>
+                <a href="recuperar.html" class="text-[#0066CC] text-xs hover:underline">¿Olvidó su contraseña?</a>
+              </div>
+              <div class="relative">
+                <input id="password2" type="password" placeholder="••••••••"
+                  class="w-full px-4 py-3 pr-12 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+                <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" aria-label="Mostrar contraseña">
+                  <span class="material-symbols-outlined text-xl">visibility</span>
+                </button>
+              </div>
+            </div>
+            <button onclick="handleLogin()" class="w-full bg-[#FFCC00] text-[#001e40] font-heading font-bold py-3.5 rounded-lg hover:bg-[#f1c100] active:scale-[0.98] transition-all shadow-sm flex justify-center items-center gap-2 text-base">
+              Ingresar
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="my-6 border-t border-outline-variant"></div>
+
+        <!-- Register -->
+        <p class="text-center text-sm text-on-surface-variant mb-3">¿No tiene una cuenta?</p>
+        <a href="registro.html" class="w-full block text-center border-2 border-[#003366] text-[#003366] font-heading font-bold py-3 rounded-lg hover:bg-[#003366]/5 transition-colors text-sm">
+          Crear una cuenta nueva
+        </a>
+        <div class="mt-4 text-center">
+          <a href="ayuda.html" class="text-on-surface-variant text-xs hover:text-[#0066CC] hover:underline flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-base">help_outline</span>
+            Guía de usuario y soporte técnico
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1]">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Instituto Colombiano para la Evaluación de la Educación. Todos los derechos reservados.</p>
+    <nav class="flex flex-wrap gap-4 text-xs" aria-label="Enlaces del pie de página">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Política de privacidad</a>
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Términos y condiciones</a>
+      <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Centro de ayuda</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Tab switching
+const tabEmail = document.getElementById('tab-email');
+const tabDoc = document.getElementById('tab-doc');
+const panelEmail = document.getElementById('panel-email');
+const panelDoc = document.getElementById('panel-doc');
+
+tabEmail.addEventListener('click', () => {
+  tabEmail.className = 'flex-1 pb-3 font-heading font-semibold text-sm tab-active transition-all';
+  tabDoc.className = 'flex-1 pb-3 font-heading font-semibold text-sm tab-inactive transition-all';
+  tabEmail.setAttribute('aria-selected', 'true');
+  tabDoc.setAttribute('aria-selected', 'false');
+  panelEmail.classList.remove('hidden');
+  panelDoc.classList.add('hidden');
+});
+tabDoc.addEventListener('click', () => {
+  tabDoc.className = 'flex-1 pb-3 font-heading font-semibold text-sm tab-active transition-all';
+  tabEmail.className = 'flex-1 pb-3 font-heading font-semibold text-sm tab-inactive transition-all';
+  tabDoc.setAttribute('aria-selected', 'true');
+  tabEmail.setAttribute('aria-selected', 'false');
+  panelDoc.classList.remove('hidden');
+  panelEmail.classList.add('hidden');
+});
+
+// Password toggle
+document.getElementById('toggle-pw').addEventListener('click', () => {
+  const pw = document.getElementById('password');
+  const icon = document.getElementById('toggle-pw').querySelector('.material-symbols-outlined');
+  if (pw.type === 'password') { pw.type = 'text'; icon.textContent = 'visibility_off'; }
+  else { pw.type = 'password'; icon.textContent = 'visibility'; }
+});
+
+// Login handler
+function handleLogin() {
+  const email = document.getElementById('email').value.trim();
+  const pw = document.getElementById('password').value;
+  if (!email || !pw) {
+    document.getElementById('error-banner').classList.remove('hidden');
+    return;
+  }
+  window.location.href = 'dashboard.html';
+}
+
+// Enter key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') handleLogin();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Centro de Ayuda y Manuales - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',secondary:'#2a609d','tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','tertiary-container':'#d0a600','focus-blue':'#0066CC',surface:'#FFFFFF',background:'#f8f9fa','surface-container':'#edeeef','surface-container-low':'#f3f4f5','surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1',outline:'#737780','on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333',success:'#2E7D32',error:'#C62828'},fontFamily:{sans:['Open Sans','sans-serif'],heading:['Montserrat','sans-serif']}}}}
+</script>
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+  .card-shadow{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-answer.open { max-height: 500px; }
+  .manual-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); border-color: #0066CC; }
+  .manual-card { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1 hover:underline" aria-label="Accesibilidad"><span class="material-symbols-outlined text-lg">accessibility_new</span><span class="hidden sm:inline">Accesibilidad</span></button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="bg-[#003366] shadow-md w-full sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+      </a>
+      <div class="hidden md:flex gap-1">
+        <a href="oferta_examenes.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Inscripción</a>
+        <a href="citacion.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Citación</a>
+        <a href="#" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Resultados</a>
+        <a href="perfil.html" class="text-white bg-white/20 px-3 py-2 rounded-lg font-bold text-sm border-b-2 border-[#ffe08b]">Mi Perfil</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="text-right hidden sm:block">
+        <p class="text-white font-semibold text-sm">John Doe</p>
+        <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
+      </div>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-6xl mx-auto w-full px-6 py-8" role="main">
+
+  <!-- Breadcrumb + Back -->
+  <div class="flex items-center justify-between mb-5">
+    <a href="dashboard.html" class="flex items-center gap-2 text-[#2a609d] font-semibold text-sm hover:underline group">
+      <span class="material-symbols-outlined text-base group-hover:-translate-x-1 transition-transform">arrow_back</span>
+      Volver al tablero
+    </a>
+    <nav aria-label="Miga de pan" class="text-xs text-on-surface-variant">
+      <a href="dashboard.html" class="hover:text-[#0066CC]">Inicio</a>
+      <span class="mx-2">/</span>
+      <a href="perfil.html" class="hover:text-[#0066CC]">Mi Perfil</a>
+      <span class="mx-2">/</span>
+      <span class="text-primary font-semibold">Ayuda</span>
+    </nav>
+  </div>
+
+  <!-- Page Title -->
+  <div class="mb-6 border-l-4 border-[#d0a600] pl-4">
+    <h1 class="font-heading font-bold text-2xl text-primary">Centro de Ayuda y Manuales</h1>
+    <p class="text-on-surface-variant text-sm mt-1">Encuentre guías detalladas para sus procesos de inscripción y evaluación.</p>
+  </div>
+
+  <!-- User Info Card -->
+  <section class="bg-white rounded-xl card-shadow border border-outline-variant p-5 mb-8 flex flex-col sm:flex-row items-center gap-5" aria-label="Información del usuario">
+    <div class="w-14 h-14 rounded-full bg-[#d4e3ff] flex items-center justify-center flex-shrink-0">
+      <span class="material-symbols-outlined text-[#2a609d] text-3xl">account_circle</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-grow text-center sm:text-left">
+      <div>
+        <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Usuario</p>
+        <p class="font-heading font-bold text-sm text-primary">john.doe@email.com</p>
+      </div>
+      <div>
+        <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Rol del sistema</p>
+        <span class="inline-flex items-center gap-1 bg-[#e1e3e4] text-on-surface-variant font-bold text-xs px-3 py-1 rounded-full">
+          <span class="material-symbols-outlined text-sm">verified_user</span>
+          Persona Natural
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search bar -->
+  <div class="mb-8">
+    <div class="relative max-w-xl mx-auto">
+      <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
+      <input type="text" placeholder="Buscar guías, preguntas frecuentes..." aria-label="Buscar en el centro de ayuda"
+        class="w-full pl-12 pr-4 py-3.5 rounded-xl border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm shadow-sm"/>
+    </div>
+  </div>
+
+  <!-- Manuals Grid -->
+  <section class="mb-10" aria-labelledby="manuales-title">
+    <h2 id="manuales-title" class="font-heading font-bold text-xl text-primary mb-5">Manuales de inscripción</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <!-- Saber 11 -->
+      <article class="bg-white rounded-xl card-shadow border border-outline-variant overflow-hidden manual-card">
+        <div class="h-36 relative overflow-hidden bg-[#003366]">
+          <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 2px 2px, white 1px, transparent 0);background-size:24px 24px;"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="material-symbols-outlined text-white/60 text-6xl mb-1">menu_book</span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#001e40]">
+            <span class="font-heading font-extrabold text-2xl text-white">Saber 11°</span>
+          </div>
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h3 class="font-heading font-bold text-base text-primary mb-2">Manual de Inscripción Saber 11°</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-4 flex-grow">Guía paso a paso para el proceso de inscripción a los Exámenes de Estado de educación media.</p>
+          <div class="flex items-center justify-between text-xs text-on-surface-variant mb-4">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">description</span>PDF · 2.4 MB</span>
+            <span>Actualizado: Feb 2024</span>
+          </div>
+          <button class="w-full bg-[#003366] text-white font-heading font-bold py-3 rounded-lg hover:bg-[#001e40] transition-colors flex items-center justify-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-base">download</span>
+            Descargar PDF
+          </button>
+        </div>
+      </article>
+
+      <!-- Saber Pro -->
+      <article class="bg-white rounded-xl card-shadow border border-outline-variant overflow-hidden manual-card">
+        <div class="h-36 relative overflow-hidden bg-[#1f477b]">
+          <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 2px 2px, white 1px, transparent 0);background-size:24px 24px;"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="material-symbols-outlined text-white/60 text-6xl mb-1">workspace_premium</span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#001e40]">
+            <span class="font-heading font-extrabold text-2xl text-white">Saber Pro</span>
+          </div>
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h3 class="font-heading font-bold text-base text-primary mb-2">Manual de Inscripción Saber Pro</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-4 flex-grow">Instrucciones para estudiantes de últimos semestres de programas profesionales universitarios.</p>
+          <div class="flex items-center justify-between text-xs text-on-surface-variant mb-4">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">description</span>PDF · 3.1 MB</span>
+            <span>Actualizado: Feb 2024</span>
+          </div>
+          <button class="w-full bg-[#003366] text-white font-heading font-bold py-3 rounded-lg hover:bg-[#001e40] transition-colors flex items-center justify-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-base">download</span>
+            Descargar PDF
+          </button>
+        </div>
+      </article>
+
+      <!-- Saber TyT -->
+      <article class="bg-white rounded-xl card-shadow border border-outline-variant overflow-hidden manual-card">
+        <div class="h-36 relative overflow-hidden bg-[#2a609d]">
+          <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 2px 2px, white 1px, transparent 0);background-size:24px 24px;"></div>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="material-symbols-outlined text-white/60 text-6xl mb-1">engineering</span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#001e40]">
+            <span class="font-heading font-extrabold text-2xl text-white">Saber TyT</span>
+          </div>
+        </div>
+        <div class="p-5 flex flex-col flex-grow">
+          <h3 class="font-heading font-bold text-base text-primary mb-2">Manual de Inscripción Saber TyT</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-4 flex-grow">Guía para estudiantes de programas técnicos y tecnológicos para la validación de competencias.</p>
+          <div class="flex items-center justify-between text-xs text-on-surface-variant mb-4">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">description</span>PDF · 1.8 MB</span>
+            <span>Actualizado: Feb 2024</span>
+          </div>
+          <button class="w-full bg-[#003366] text-white font-heading font-bold py-3 rounded-lg hover:bg-[#001e40] transition-colors flex items-center justify-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-base">download</span>
+            Descargar PDF
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="mb-10" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="font-heading font-bold text-xl text-primary mb-5">Preguntas frecuentes</h2>
+    <div class="bg-white rounded-xl card-shadow border border-outline-variant divide-y divide-[#f3f4f5]" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="w-full flex items-center justify-between p-5 text-left hover:bg-[#f8f9fa] transition-colors" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="font-heading font-semibold text-sm text-primary pr-4">¿Cuáles son los requisitos para inscribirse al Saber 11°?</span>
+          <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0 transition-transform text-xl">expand_more</span>
+        </button>
+        <div class="faq-answer px-5 pb-0">
+          <p class="text-sm text-on-surface-variant leading-relaxed pb-5">Debe estar cursando grado 11° en una institución educativa reconocida por el MEN, o haber completado el grado 11° en los últimos años. También puede inscribirse si está en proceso de validación del bachillerato y es mayor de 18 años.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="w-full flex items-center justify-between p-5 text-left hover:bg-[#f8f9fa] transition-colors" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="font-heading font-semibold text-sm text-primary pr-4">¿Puedo cambiar mi sede de examen después de haberla seleccionado?</span>
+          <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0 transition-transform text-xl">expand_more</span>
+        </button>
+        <div class="faq-answer px-5 pb-0">
+          <p class="text-sm text-on-surface-variant leading-relaxed pb-5">Sí, puede modificar su sede durante el período habilitado para cambios, el cual se indica en el calendario de la convocatoria. Una vez cerrado este período, no será posible realizar cambios. Tenga en cuenta que el cambio está sujeto a disponibilidad de cupos en la nueva sede.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="w-full flex items-center justify-between p-5 text-left hover:bg-[#f8f9fa] transition-colors" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="font-heading font-semibold text-sm text-primary pr-4">¿Qué pasa si no puedo pagar en el período ordinario?</span>
+          <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0 transition-transform text-xl">expand_more</span>
+        </button>
+        <div class="faq-answer px-5 pb-0">
+          <p class="text-sm text-on-surface-variant leading-relaxed pb-5">Si no realiza el pago en el período ordinario, puede hacerlo durante el período extraordinario con un costo adicional. Pasado este período, no será posible completar la inscripción para la convocatoria en curso y deberá esperar a la siguiente.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="w-full flex items-center justify-between p-5 text-left hover:bg-[#f8f9fa] transition-colors" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="font-heading font-semibold text-sm text-primary pr-4">¿Cómo descargo mi citación oficial?</span>
+          <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0 transition-transform text-xl">expand_more</span>
+        </button>
+        <div class="faq-answer px-5 pb-0">
+          <p class="text-sm text-on-surface-variant leading-relaxed pb-5">Una vez asignada su citación, puede descargarla desde la sección <strong>Citación</strong> en el menú principal. Haga clic en el botón "Descargar" para obtener el documento en PDF. Se recomienda llevar la citación impresa o en su dispositivo móvil el día del examen.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="w-full flex items-center justify-between p-5 text-left hover:bg-[#f8f9fa] transition-colors" onclick="toggleFaq(this)" aria-expanded="false">
+          <span class="font-heading font-semibold text-sm text-primary pr-4">¿Cuándo se publican los resultados?</span>
+          <span class="material-symbols-outlined text-on-surface-variant flex-shrink-0 transition-transform text-xl">expand_more</span>
+        </button>
+        <div class="faq-answer px-5 pb-0">
+          <p class="text-sm text-on-surface-variant leading-relaxed pb-5">Los resultados se publican aproximadamente 6 semanas después de la fecha de aplicación del examen. Recibirá una notificación al correo registrado cuando estén disponibles. Puede consultarlos en la sección <strong>Resultados</strong> del portal.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Support -->
+  <section class="bg-[#003366] rounded-2xl p-7 md:p-10 text-white relative overflow-hidden" aria-labelledby="support-cta">
+    <div class="absolute inset-0 opacity-5" style="background-image:radial-gradient(circle at 2px 2px, white 1px, transparent 0);background-size:32px 32px;"></div>
+    <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+      <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+        <span class="material-symbols-outlined text-white text-3xl">support_agent</span>
+      </div>
+      <div class="flex-grow text-center md:text-left">
+        <h2 id="support-cta" class="font-heading font-bold text-xl mb-1">¿No encuentra lo que busca?</h2>
+        <p class="text-white/75 text-sm">Contamos con una línea de atención al ciudadano y canales digitales para resolver sus dudas.</p>
+        <div class="flex flex-wrap gap-4 mt-3 justify-center md:justify-start text-sm">
+          <span class="flex items-center gap-2 text-[#ffe08b]"><span class="material-symbols-outlined text-base">call</span>(601) 5144370</span>
+          <span class="flex items-center gap-2 text-[#ffe08b]"><span class="material-symbols-outlined text-base">schedule</span>Lun–Vie 8am–4pm</span>
+        </div>
+      </div>
+      <a href="mailto:atencion@icfes.gov.co" class="flex-shrink-0 bg-[#FFCC00] text-[#001e40] font-heading font-bold px-7 py-3 rounded-full hover:bg-[#f1c100] transition-all text-sm shadow-md">
+        Contactar soporte
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-6">
+      <div>
+        <span class="font-heading font-bold text-primary block mb-1">PRISMA ICFES</span>
+        <p class="text-on-surface-variant text-xs max-w-xs">Instituto Colombiano para la Evaluación de la Educación.</p>
+        <div class="mt-2 text-xs text-on-surface-variant space-y-0.5">
+          <p>Calle 26 No. 69-76, Edificio Elemento, Torre 2, Piso 16</p>
+          <p>Línea ciudadana: (601) 5144370 | Lun–Vie 8am–4pm</p>
+        </div>
+      </div>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 text-xs">
+        <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+        <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Términos y condiciones</a>
+        <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Mapa del sitio</a>
+        <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline">Centro de ayuda</a>
+      </nav>
+    </div>
+    <div class="border-t border-[#c3c6d1] pt-4 flex justify-between items-center">
+      <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+      <span class="font-heading font-bold text-on-surface-variant/40 uppercase tracking-widest text-xs">GOV.CO</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const icon = btn.querySelector('.material-symbols-outlined');
+  const isOpen = answer.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-item button .material-symbols-outlined').forEach(i => {
+    i.style.transform = 'rotate(0deg)';
+  });
+  document.querySelectorAll('.faq-item button').forEach(b => b.setAttribute('aria-expanded','false'));
+  // Toggle current
+  if (!isOpen) {
+    answer.classList.add('open');
+    icon.style.transform = 'rotate(180deg)';
+    btn.setAttribute('aria-expanded','true');
+  }
+}
+</script>
+</body>
+</html>

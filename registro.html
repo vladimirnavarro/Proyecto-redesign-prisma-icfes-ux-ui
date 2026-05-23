@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Crear Cuenta - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',
+      secondary:'#2a609d','tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00',
+      'focus-blue':'#0066CC','on-secondary-fixed-variant':'#004883',
+      'surface':'#FFFFFF','background':'#f8f9fa','surface-container':'#edeeef',
+      'surface-container-low':'#f3f4f5','surface-container-highest':'#e1e3e4',
+      'outline-variant':'#c3c6d1','outline':'#737780','on-surface':'#191c1d',
+      'on-surface-variant':'#43474f','text-body':'#333333','success':'#2E7D32',
+      'error':'#C62828','border-default':'#CCCCCC',
+    },
+    fontFamily: { sans:['Open Sans','sans-serif'], heading:['Montserrat','sans-serif'] }
+  }}
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  .card-shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  input:focus, select:focus { outline: none; }
+  .step-line { background: linear-gradient(to right, #003366, #003366); }
+  .pw-req { font-size:12px; }
+  .pw-req.met { color: #2E7D32; }
+  .pw-req.unmet { color: #737780; }
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-50">
+  <a href="index.html" class="font-heading font-bold text-white uppercase tracking-wider text-sm hover:underline">GOV.CO</a>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 hover:opacity-100 flex items-center gap-1 text-xs" aria-label="Accesibilidad">
+      <span class="material-symbols-outlined text-lg">accessibility_new</span>
+    </button>
+  </div>
+</header>
+
+<!-- Minimal Nav for registration -->
+<nav class="bg-[#003366] shadow-md w-full z-50" role="navigation">
+  <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-2" aria-label="PRISMA ICFES - Volver al inicio">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+        <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+        <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+        <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+        <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+      </svg>
+      <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+    </a>
+    <a href="login.html" class="text-white/80 hover:text-white text-sm flex items-center gap-1 hover:underline">
+      <span class="material-symbols-outlined text-base">login</span>
+      Ya tengo cuenta
+    </a>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-2xl mx-auto w-full px-4 md:px-6 py-10" role="main">
+  <!-- Page Header -->
+  <div class="mb-8">
+    <nav aria-label="Miga de pan" class="text-xs text-on-surface-variant mb-3">
+      <a href="index.html" class="hover:text-[#0066CC]">Inicio</a>
+      <span class="mx-2">/</span>
+      <span class="text-primary font-semibold">Crear cuenta</span>
+    </nav>
+    <h1 class="font-heading font-bold text-2xl text-primary mb-1">Crear cuenta</h1>
+    <p class="text-on-surface-variant text-sm">Complete el formulario para registrarse como persona natural en el portal PRISMA ICFES.</p>
+  </div>
+
+  <!-- Info notice -->
+  <div class="flex items-start gap-3 bg-[#d4e3ff]/50 border border-[#a4c9ff] rounded-lg p-4 mb-6">
+    <span class="material-symbols-outlined text-[#2a609d] text-xl flex-shrink-0">info</span>
+    <div class="text-sm">
+      <p class="font-semibold text-[#001c39] mb-1">Registro para personas naturales</p>
+      <p class="text-[#004883]">Si pertenece a una institución educativa, contacte al administrador de su institución para obtener acceso institucional.</p>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-xl card-shadow border border-outline-variant p-6 md:p-8">
+    <form id="registro-form" novalidate>
+
+      <!-- Section 1: Identification -->
+      <section class="mb-8" aria-labelledby="sec-id">
+        <div class="flex items-center gap-2 mb-5 pb-2 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">badge</span>
+          <h2 id="sec-id" class="font-heading font-semibold text-lg text-primary">Datos de identificación</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="tipo-doc" class="block font-semibold text-sm text-text-body mb-1">
+              Tipo de documento <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <select id="tipo-doc" required class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white" aria-required="true">
+              <option value="">Seleccione tipo</option>
+              <option value="cc">Cédula de ciudadanía</option>
+              <option value="ti">Tarjeta de identidad</option>
+              <option value="ce">Cédula de extranjería</option>
+              <option value="ppt">Permiso por Protección Temporal</option>
+            </select>
+          </div>
+          <div>
+            <label for="num-doc" class="block font-semibold text-sm text-text-body mb-1">
+              Número de documento <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <input id="num-doc" type="text" required placeholder="Sin puntos ni espacios"
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+          </div>
+          <div>
+            <label for="primer-nombre" class="block font-semibold text-sm text-text-body mb-1">
+              Primer nombre <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <input id="primer-nombre" type="text" required placeholder="Primer nombre"
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+          </div>
+          <div>
+            <label for="segundo-nombre" class="block font-semibold text-sm text-text-body mb-1">Segundo nombre</label>
+            <input id="segundo-nombre" type="text" placeholder="Segundo nombre (opcional)"
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+          </div>
+          <div>
+            <label for="primer-apellido" class="block font-semibold text-sm text-text-body mb-1">
+              Primer apellido <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <input id="primer-apellido" type="text" required placeholder="Primer apellido"
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+          </div>
+          <div>
+            <label for="segundo-apellido" class="block font-semibold text-sm text-text-body mb-1">Segundo apellido</label>
+            <input id="segundo-apellido" type="text" placeholder="Segundo apellido (opcional)"
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+          </div>
+          <div>
+            <label for="fecha-nac" class="block font-semibold text-sm text-text-body mb-1">
+              Fecha de nacimiento <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <input id="fecha-nac" type="date" required
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+          </div>
+          <div>
+            <label for="genero" class="block font-semibold text-sm text-text-body mb-1">
+              Género <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <select id="genero" required class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white" aria-required="true">
+              <option value="">Seleccione</option>
+              <option value="m">Masculino</option>
+              <option value="f">Femenino</option>
+              <option value="nb">No binario</option>
+              <option value="nd">Prefiero no decir</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Contact -->
+      <section class="mb-8" aria-labelledby="sec-contact">
+        <div class="flex items-center gap-2 mb-5 pb-2 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">contact_mail</span>
+          <h2 id="sec-contact" class="font-heading font-semibold text-lg text-primary">Datos de contacto</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="sm:col-span-2">
+            <label for="email-reg" class="block font-semibold text-sm text-text-body mb-1">
+              Correo electrónico <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <input id="email-reg" type="email" required placeholder="ejemplo@correo.com"
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+            <p class="text-xs text-on-surface-variant mt-1">Se enviará un código de verificación a este correo.</p>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="email-confirm" class="block font-semibold text-sm text-text-body mb-1">
+              Confirmar correo <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <input id="email-confirm" type="email" required placeholder="Repita su correo electrónico"
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+          </div>
+          <div>
+            <label for="celular" class="block font-semibold text-sm text-text-body mb-1">
+              Número de celular <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <input id="celular" type="tel" required placeholder="300 000 0000"
+              class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+            <p class="text-xs text-on-surface-variant mt-1">10 dígitos sin espacios.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Password -->
+      <section class="mb-8" aria-labelledby="sec-pw">
+        <div class="flex items-center gap-2 mb-5 pb-2 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">lock</span>
+          <h2 id="sec-pw" class="font-heading font-semibold text-lg text-primary">Crear contraseña</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="pw-new" class="block font-semibold text-sm text-text-body mb-1">
+              Contraseña <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <div class="relative">
+              <input id="pw-new" type="password" required placeholder="Mínimo 8 caracteres"
+                class="w-full px-4 py-3 pr-12 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true" aria-describedby="pw-requirements"/>
+              <button type="button" onclick="togglePw('pw-new','icon1')" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" aria-label="Mostrar contraseña">
+                <span id="icon1" class="material-symbols-outlined text-xl">visibility</span>
+              </button>
+            </div>
+            <!-- Requirements -->
+            <div id="pw-requirements" class="mt-2 space-y-1" aria-live="polite">
+              <p id="req-len" class="pw-req unmet flex items-center gap-1"><span class="material-symbols-outlined text-base">radio_button_unchecked</span> Mínimo 8 caracteres</p>
+              <p id="req-upper" class="pw-req unmet flex items-center gap-1"><span class="material-symbols-outlined text-base">radio_button_unchecked</span> Al menos una mayúscula</p>
+              <p id="req-num" class="pw-req unmet flex items-center gap-1"><span class="material-symbols-outlined text-base">radio_button_unchecked</span> Al menos un número</p>
+            </div>
+          </div>
+          <div>
+            <label for="pw-confirm" class="block font-semibold text-sm text-text-body mb-1">
+              Confirmar contraseña <span class="text-error" aria-label="requerido">*</span>
+            </label>
+            <div class="relative">
+              <input id="pw-confirm" type="password" required placeholder="Repita su contraseña"
+                class="w-full px-4 py-3 pr-12 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+              <button type="button" onclick="togglePw('pw-confirm','icon2')" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-primary" aria-label="Mostrar contraseña">
+                <span id="icon2" class="material-symbols-outlined text-xl">visibility</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Terms -->
+      <div class="mb-6 p-4 bg-[#f3f4f5] rounded-lg border border-outline-variant">
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input id="terms" type="checkbox" required class="w-4 h-4 mt-0.5 rounded border-[#CCCCCC] text-[#0066CC] focus:ring-[#0066CC] flex-shrink-0" aria-required="true"/>
+          <span class="text-sm text-on-surface-variant">
+            He leído y acepto los <a href="#" class="text-[#0066CC] underline">términos y condiciones</a> y la
+            <a href="#" class="text-[#0066CC] underline">política de privacidad y tratamiento de datos personales</a> del ICFES.
+          </span>
+        </label>
+      </div>
+
+      <!-- Error banner -->
+      <div id="form-error" class="hidden mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-start gap-2" role="alert">
+        <span class="material-symbols-outlined text-error text-xl flex-shrink-0">error</span>
+        <p id="form-error-msg" class="text-error text-sm">Por favor complete todos los campos requeridos.</p>
+      </div>
+
+      <!-- Submit -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-between items-center">
+        <a href="login.html" class="flex items-center gap-2 text-[#003366] font-heading font-semibold text-sm hover:underline">
+          <span class="material-symbols-outlined text-base">arrow_back</span>
+          Ya tengo cuenta
+        </a>
+        <button type="submit" onclick="handleRegistro(event)"
+          class="bg-[#FFCC00] text-[#001e40] font-heading font-bold px-10 py-3.5 rounded-lg hover:bg-[#f1c100] active:scale-[0.98] transition-all shadow-sm flex items-center gap-2">
+          Crear cuenta
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+    <nav class="flex gap-4 text-xs">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Términos y condiciones</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+function togglePw(inputId, iconId) {
+  const input = document.getElementById(inputId);
+  const icon = document.getElementById(iconId);
+  if (input.type === 'password') { input.type = 'text'; icon.textContent = 'visibility_off'; }
+  else { input.type = 'password'; icon.textContent = 'visibility'; }
+}
+
+// Password validation feedback
+document.getElementById('pw-new').addEventListener('input', function() {
+  const v = this.value;
+  setReq('req-len', v.length >= 8);
+  setReq('req-upper', /[A-Z]/.test(v));
+  setReq('req-num', /[0-9]/.test(v));
+});
+
+function setReq(id, met) {
+  const el = document.getElementById(id);
+  const icon = el.querySelector('.material-symbols-outlined');
+  if (met) {
+    el.className = 'pw-req met flex items-center gap-1';
+    icon.textContent = 'check_circle';
+  } else {
+    el.className = 'pw-req unmet flex items-center gap-1';
+    icon.textContent = 'radio_button_unchecked';
+  }
+}
+
+function handleRegistro(e) {
+  e.preventDefault();
+  const errorDiv = document.getElementById('form-error');
+  const errorMsg = document.getElementById('form-error-msg');
+
+  // Check required fields
+  const required = ['tipo-doc','num-doc','primer-nombre','primer-apellido','fecha-nac','genero','email-reg','email-confirm','celular','pw-new','pw-confirm'];
+  for (const id of required) {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) {
+      errorMsg.textContent = 'Por favor complete todos los campos requeridos.';
+      errorDiv.classList.remove('hidden');
+      el.focus();
+      return;
+    }
+  }
+  if (document.getElementById('email-reg').value !== document.getElementById('email-confirm').value) {
+    errorMsg.textContent = 'Los correos electrónicos no coinciden.';
+    errorDiv.classList.remove('hidden');
+    return;
+  }
+  if (document.getElementById('pw-new').value !== document.getElementById('pw-confirm').value) {
+    errorMsg.textContent = 'Las contraseñas no coinciden.';
+    errorDiv.classList.remove('hidden');
+    return;
+  }
+  if (!document.getElementById('terms').checked) {
+    errorMsg.textContent = 'Debe aceptar los términos y condiciones para continuar.';
+    errorDiv.classList.remove('hidden');
+    return;
+  }
+  // Success: redirect to login
+  window.location.href = 'login.html';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Error del sistema - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',secondary:'#2a609d','tertiary-fixed':'#ffe08b','focus-blue':'#0066CC',surface:'#FFFFFF',background:'#f8f9fa','surface-container-low':'#f3f4f5','surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1',outline:'#737780','on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333',error:'#C62828','error-container':'#ffdad6','on-error-container':'#93000a'},fontFamily:{sans:['Open Sans','sans-serif'],heading:['Montserrat','sans-serif']}}}}
+</script>
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+  .card-shadow{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1" aria-label="Accesibilidad"><span class="material-symbols-outlined text-lg">accessibility_new</span></button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="bg-[#003366] shadow-md w-full z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <a href="dashboard.html" class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+        <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+        <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+        <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+        <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+      </svg>
+      <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+    </a>
+    <div class="flex items-center gap-3">
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow flex items-center justify-center py-10 px-4" role="main">
+  <div class="w-full max-w-lg bg-white rounded-xl card-shadow border border-outline-variant p-8 md:p-12 text-center">
+
+    <!-- Error Icon -->
+    <div class="mb-6">
+      <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-[#ffdad6]">
+        <span class="material-symbols-outlined text-[#C62828] text-6xl" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48">error</span>
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    <h1 class="font-heading font-bold text-2xl text-primary mb-3">No pudimos completar la operación</h1>
+
+    <div class="bg-[#f3f4f5] border-l-4 border-[#C62828] p-4 mb-6 text-left rounded-r-lg" role="alert">
+      <p class="text-sm text-on-surface-variant leading-relaxed">
+        Hubo un problema de conexión con el servidor de pagos. Por favor, intente de nuevo en unos minutos. Si el problema persiste, comuníquese con soporte técnico.
+      </p>
+    </div>
+
+    <!-- Error reference -->
+    <div class="py-4 border-y border-[#f3f4f5] flex flex-col sm:flex-row justify-between items-center gap-3 mb-6 text-xs text-on-surface-variant">
+      <div class="flex items-center gap-2">
+        <span class="font-semibold uppercase tracking-tight">Referencia:</span>
+        <code class="bg-[#f3f4f5] px-2 py-0.5 rounded font-mono text-text-body">ERR-PAY-503-0924</code>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-base">support_agent</span>
+        <span>01 8000 519 535</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <button onclick="window.history.back()" class="w-full sm:w-auto bg-[#FFCC00] text-[#001e40] font-heading font-bold px-8 py-3.5 rounded-lg hover:bg-[#f1c100] active:scale-[0.98] transition-all shadow-sm text-sm">
+        Intentar nuevamente
+      </button>
+      <a href="dashboard.html" class="w-full sm:w-auto border border-[#003366] text-[#003366] font-heading font-bold px-8 py-3.5 rounded-lg hover:bg-[#003366]/5 transition-colors text-sm">
+        Ir al inicio
+      </a>
+    </div>
+
+    <!-- Help link -->
+    <div class="mt-6">
+      <a href="ayuda.html" class="text-[#0066CC] text-xs hover:underline flex items-center justify-center gap-1">
+        <span class="material-symbols-outlined text-sm">help_outline</span>
+        Ver guías de soporte técnico
+      </a>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+    <nav class="flex gap-4 text-xs">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+      <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline">Centro de ayuda</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

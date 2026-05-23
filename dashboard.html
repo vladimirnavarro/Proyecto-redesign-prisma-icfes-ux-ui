@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tablero Principal - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="shared.js" defer></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',
+      'on-primary-container':'#799dd6',secondary:'#2a609d','on-secondary':'#ffffff',
+      'secondary-container':'#8bbbfe','on-secondary-container':'#054a86',
+      'tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','tertiary-container':'#d0a600',
+      'on-tertiary-container':'#4f3d00','focus-blue':'#0066CC','on-secondary-fixed-variant':'#004883',
+      'surface':'#FFFFFF','background':'#f8f9fa','surface-container':'#edeeef',
+      'surface-container-low':'#f3f4f5','surface-container-high':'#e7e8e9',
+      'surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1','outline':'#737780',
+      'on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333',
+      'text-dark':'#202020','success':'#2E7D32','error':'#C62828',
+      'error-container':'#ffdad6','on-error-container':'#93000a',
+    },
+    fontFamily: { sans:['Open Sans','sans-serif'], heading:['Montserrat','sans-serif'] }
+  }}
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  .card-shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .action-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+  .action-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 hover:opacity-100 flex items-center gap-1 text-xs hover:underline" aria-label="Accesibilidad">
+      <span class="material-symbols-outlined text-lg">accessibility_new</span>
+      <span class="hidden sm:inline">Accesibilidad</span>
+    </button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Main Nav -->
+<nav class="bg-[#003366] shadow-md w-full sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+      </a>
+      <div class="hidden md:flex gap-1">
+        <a href="oferta_examenes.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Inscripción</a>
+        <a href="citacion.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Citación</a>
+        <a href="#" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Resultados</a>
+        <a href="perfil.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Mi Perfil</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="text-right hidden sm:block">
+        <p class="text-white font-semibold text-sm">John Doe</p>
+        <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
+      </div>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-6xl mx-auto w-full px-6 py-8" role="main">
+
+  <!-- Welcome Banner -->
+  <div class="bg-[#003366] rounded-2xl p-6 md:p-8 mb-8 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5" style="background-image:radial-gradient(circle at 2px 2px, white 1px, transparent 0);background-size:32px 32px;"></div>
+    <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div>
+        <p class="text-[#799dd6] text-sm font-semibold mb-1">Bienvenido de nuevo,</p>
+        <h1 class="font-heading font-bold text-2xl mb-1">John Doe</h1>
+        <p class="text-white/70 text-sm">CC 1.000.123.456 · john.doe@email.com</p>
+      </div>
+      <div class="flex items-center gap-2 bg-[#ffe08b]/20 border border-[#ffe08b]/40 px-4 py-2 rounded-lg">
+        <span class="material-symbols-outlined text-[#ffe08b] text-xl">payments</span>
+        <div>
+          <p class="text-[#ffe08b] text-xs font-semibold uppercase tracking-tight">Paso actual</p>
+          <p class="text-white font-heading font-bold text-sm">Pago pendiente</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-8">
+    <!-- Left Sidebar -->
+    <aside class="w-full lg:w-80 flex-shrink-0 space-y-6" aria-label="Información de perfil">
+
+      <!-- Profile Card -->
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant p-6">
+        <div class="flex items-center gap-4 mb-5">
+          <div class="w-14 h-14 rounded-full bg-[#d4e3ff] flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[#2a609d] text-3xl">person</span>
+          </div>
+          <div>
+            <h2 class="font-heading font-bold text-base text-text-dark">John Doe</h2>
+            <span class="inline-block bg-[#d4e3ff] text-[#054a86] text-xs font-bold px-2 py-0.5 rounded uppercase tracking-tight">Persona Natural</span>
+          </div>
+        </div>
+        <div class="space-y-3 mb-5">
+          <div>
+            <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight">Identificación</p>
+            <p class="text-sm text-text-body">CC 1.000.123.456</p>
+          </div>
+          <div>
+            <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight">Correo</p>
+            <p class="text-sm text-text-body">john.doe@email.com</p>
+          </div>
+          <div>
+            <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight">Ubicación</p>
+            <p class="text-sm text-text-body">Bogotá D.C., Colombia</p>
+          </div>
+        </div>
+        <a href="perfil.html" class="w-full flex items-center justify-center gap-2 border border-[#2a609d] text-[#2a609d] font-heading font-bold py-2.5 rounded-lg hover:bg-[#2a609d]/5 transition-colors text-sm">
+          <span class="material-symbols-outlined text-base">edit</span>
+          Editar Perfil
+        </a>
+      </div>
+
+      <!-- Help Card -->
+      <div class="bg-[#003366] rounded-xl p-5 text-white">
+        <h3 class="font-heading font-bold text-base mb-2">¿Necesitas ayuda?</h3>
+        <p class="text-white/75 text-sm mb-4">Consulta guías de usuario o contacta a un asesor.</p>
+        <a href="ayuda.html" class="text-[#ffe08b] font-semibold text-sm flex items-center gap-1 hover:underline">
+          Ver guías de usuario <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-grow space-y-8">
+      <!-- Stepper -->
+      <section class="bg-white rounded-xl card-shadow border border-outline-variant p-6" aria-labelledby="stepper-title">
+        <div class="flex justify-between items-center mb-8">
+          <h2 id="stepper-title" class="font-heading font-bold text-lg text-text-dark">Estado de mi proceso</h2>
+          <span class="flex items-center gap-1 text-success font-semibold text-sm">
+            <span class="material-symbols-outlined text-xl">check_circle</span> En curso
+          </span>
+        </div>
+        <div class="relative flex items-start justify-between" role="list" aria-label="Progreso de inscripción">
+          <div class="absolute top-5 left-0 w-full h-0.5 bg-outline-variant -z-0" aria-hidden="true"></div>
+          <!-- Step 1 -->
+          <div class="relative z-10 flex flex-col items-center gap-2 text-center w-1/5" role="listitem">
+            <div class="w-10 h-10 rounded-full bg-white border-2 border-success flex items-center justify-center text-success shadow-sm" aria-label="Completado">
+              <span class="material-symbols-outlined text-lg">done</span>
+            </div>
+            <span class="text-xs font-bold text-success leading-tight">Activación</span>
+          </div>
+          <!-- Step 2 -->
+          <div class="relative z-10 flex flex-col items-center gap-2 text-center w-1/5" role="listitem">
+            <div class="w-10 h-10 rounded-full bg-white border-2 border-success flex items-center justify-center text-success shadow-sm" aria-label="Completado">
+              <span class="material-symbols-outlined text-lg">done</span>
+            </div>
+            <span class="text-xs font-bold text-success leading-tight">Pre-inscripción</span>
+          </div>
+          <!-- Step 3 Active -->
+          <div class="relative z-10 flex flex-col items-center gap-2 text-center w-1/5" role="listitem">
+            <div class="w-10 h-10 rounded-full bg-white border-2 border-[#0066CC] flex items-center justify-center text-[#0066CC] shadow-sm ring-4 ring-[#0066CC]/15" aria-label="En curso" aria-current="step">
+              <span class="material-symbols-outlined text-lg">payments</span>
+            </div>
+            <span class="text-xs font-bold text-[#0066CC] leading-tight">Pago</span>
+          </div>
+          <!-- Step 4 -->
+          <div class="relative z-10 flex flex-col items-center gap-2 text-center w-1/5" role="listitem">
+            <div class="w-10 h-10 rounded-full bg-white border-2 border-outline-variant flex items-center justify-center text-outline shadow-sm">
+              <span class="material-symbols-outlined text-lg">edit_note</span>
+            </div>
+            <span class="text-xs text-on-surface-variant leading-tight">Inscripción</span>
+          </div>
+          <!-- Step 5 -->
+          <div class="relative z-10 flex flex-col items-center gap-2 text-center w-1/5" role="listitem">
+            <div class="w-10 h-10 rounded-full bg-white border-2 border-outline-variant flex items-center justify-center text-outline shadow-sm">
+              <span class="material-symbols-outlined text-lg">event</span>
+            </div>
+            <span class="text-xs text-on-surface-variant leading-tight">Citación</span>
+          </div>
+        </div>
+
+        <!-- CTA for current step -->
+        <div class="mt-8 p-4 bg-[#fff8e1] border border-[#ffe08b] rounded-lg flex flex-col sm:flex-row items-center gap-4">
+          <div class="flex-grow">
+            <p class="font-heading font-semibold text-sm text-[#4f3d00] mb-1">Tiene un pago pendiente</p>
+            <p class="text-xs text-[#584400]">Referencia #895310503952 – $224.000 – Vence: 28/02/2026</p>
+          </div>
+          <a href="movimientos.html" class="flex-shrink-0 bg-[#003366] text-white font-heading font-bold px-5 py-2.5 rounded-lg hover:bg-[#001e40] transition-colors text-sm flex items-center gap-2">
+            Ver pagos <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section aria-labelledby="actions-title">
+        <h2 id="actions-title" class="font-heading font-bold text-lg text-text-dark mb-4">Accesos rápidos</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <a href="oferta_examenes.html" class="bg-white p-5 rounded-xl card-shadow border border-outline-variant action-card flex items-start gap-4 group cursor-pointer">
+            <div class="p-3 rounded-xl bg-[#ffe08b] text-[#241a00] group-hover:bg-[#f1c100] transition-colors flex-shrink-0">
+              <span class="material-symbols-outlined text-2xl">assignment</span>
+            </div>
+            <div class="flex-grow">
+              <h3 class="font-heading font-semibold text-sm text-text-dark mb-1">Inscribirme a examen</h3>
+              <p class="text-xs text-on-surface-variant">Saber 11°, Saber Pro o Saber TyT.</p>
+            </div>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors mt-0.5">open_in_new</span>
+          </a>
+
+          <a href="citacion.html" class="bg-white p-5 rounded-xl card-shadow border border-outline-variant action-card flex items-start gap-4 group cursor-pointer">
+            <div class="p-3 rounded-xl bg-[#d4e3ff] text-[#001c39] group-hover:bg-[#2a609d] group-hover:text-white transition-colors flex-shrink-0">
+              <span class="material-symbols-outlined text-2xl">calendar_month</span>
+            </div>
+            <div class="flex-grow">
+              <h3 class="font-heading font-semibold text-sm text-text-dark mb-1">Ver mi citación</h3>
+              <p class="text-xs text-on-surface-variant">Lugar, fecha y hora de su examen.</p>
+            </div>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors mt-0.5">open_in_new</span>
+          </a>
+
+          <a href="consultar_inscripcion.html" class="bg-white p-5 rounded-xl card-shadow border border-outline-variant action-card flex items-start gap-4 group cursor-pointer">
+            <div class="p-3 rounded-xl bg-[#e8f5e9] text-[#1b5e20] group-hover:bg-[#2E7D32] group-hover:text-white transition-colors flex-shrink-0">
+              <span class="material-symbols-outlined text-2xl">assignment_turned_in</span>
+            </div>
+            <div class="flex-grow">
+              <h3 class="font-heading font-semibold text-sm text-text-dark mb-1">Ver mi inscripción</h3>
+              <p class="text-xs text-on-surface-variant">Estado y detalles de su proceso.</p>
+            </div>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors mt-0.5">open_in_new</span>
+          </a>
+
+          <a href="movimientos.html" class="bg-white p-5 rounded-xl card-shadow border border-outline-variant action-card flex items-start gap-4 group cursor-pointer">
+            <div class="p-3 rounded-xl bg-[#edeeef] text-[#43474f] group-hover:bg-[#003366] group-hover:text-white transition-colors flex-shrink-0">
+              <span class="material-symbols-outlined text-2xl">payments</span>
+            </div>
+            <div class="flex-grow">
+              <h3 class="font-heading font-semibold text-sm text-text-dark mb-1">Consultar movimientos</h3>
+              <p class="text-xs text-on-surface-variant">Historial y estado de pagos.</p>
+            </div>
+            <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors mt-0.5">open_in_new</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Announcement Banner -->
+      <section class="bg-gradient-to-r from-[#003366] to-[#1f477b] rounded-2xl p-6 md:p-8 text-white relative overflow-hidden" aria-label="Convocatoria">
+        <div class="absolute inset-0 opacity-5" style="background-image:radial-gradient(circle at 2px 2px, white 1px, transparent 0);background-size:28px 28px;"></div>
+        <div class="relative z-10 flex flex-col md:flex-row items-center gap-6">
+          <div class="flex-grow">
+            <span class="inline-block bg-[#ffe08b] text-[#241a00] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-tight mb-3">Convocatoria 2024-1</span>
+            <h3 class="font-heading font-bold text-xl mb-2">Inscripciones abiertas</h3>
+            <p class="text-white/80 text-sm">El cierre del período ordinario es el <strong>28 de febrero de 2026</strong>. No pierda su cupo.</p>
+          </div>
+          <a href="oferta_examenes.html" class="flex-shrink-0 bg-[#FFCC00] text-[#001e40] font-heading font-bold px-6 py-3 rounded-lg hover:bg-[#f1c100] transition-all text-sm shadow-md">
+            Más información
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-6">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-6 h-5 fill-[#003366]">
+            <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+            <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+            <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+            <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+          </svg>
+          <span class="font-heading font-bold text-primary">PRISMA ICFES</span>
+        </div>
+        <p class="text-on-surface-variant text-xs max-w-xs">Instituto Colombiano para la Evaluación de la Educación. Comprometidos con la calidad educativa.</p>
+        <div class="mt-2 text-xs text-on-surface-variant space-y-0.5">
+          <p>Calle 26 No. 69-76, Edificio Elemento, Torre 2, Piso 16</p>
+          <p>Línea ciudadana: (601) 5144370 | Lun–Vie 8am–4pm</p>
+        </div>
+      </div>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 text-xs" aria-label="Pie de página">
+        <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Política de privacidad</a>
+        <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Términos y condiciones</a>
+        <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Mapa del sitio</a>
+        <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline transition-colors">Centro de ayuda</a>
+      </nav>
+    </div>
+    <div class="border-t border-[#c3c6d1] pt-4 flex justify-between items-center">
+      <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+      <span class="font-heading font-bold text-on-surface-variant/40 uppercase tracking-widest text-xs">GOV.CO</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

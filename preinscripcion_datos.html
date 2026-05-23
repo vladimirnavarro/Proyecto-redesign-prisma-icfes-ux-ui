@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pre-inscripción – Paso 2: Datos Personales - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff','on-primary-container':'#799dd6',secondary:'#2a609d','on-secondary':'#ffffff','tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','focus-blue':'#0066CC','on-secondary-fixed-variant':'#004883',surface:'#FFFFFF',background:'#f8f9fa','surface-container':'#edeeef','surface-container-low':'#f3f4f5','surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1',outline:'#737780','on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333',success:'#2E7D32',error:'#C62828','border-default':'#CCCCCC'},fontFamily:{sans:['Open Sans','sans-serif'],heading:['Montserrat','sans-serif']}}}}
+</script>
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+  .card-shadow{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  input:focus,select:focus{outline:none;}
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1" aria-label="Accesibilidad"><span class="material-symbols-outlined text-lg">accessibility_new</span></button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="bg-[#003366] shadow-md w-full sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+      </a>
+      <div class="hidden md:flex gap-1">
+        <a href="oferta_examenes.html" class="text-white bg-white/20 px-3 py-2 rounded-lg font-bold text-sm border-b-2 border-[#ffe08b]">Inscripción</a>
+        <a href="citacion.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Citación</a>
+        <a href="#" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Resultados</a>
+        <a href="perfil.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Mi Perfil</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="text-right hidden sm:block">
+        <p class="text-white font-semibold text-sm">John Doe</p>
+        <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
+      </div>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-6xl mx-auto w-full px-6 py-8" role="main">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Miga de pan" class="text-xs text-on-surface-variant mb-5">
+    <a href="dashboard.html" class="hover:text-[#0066CC]">Inicio</a>
+    <span class="mx-2">/</span>
+    <a href="oferta_examenes.html" class="hover:text-[#0066CC]">Inscripción</a>
+    <span class="mx-2">/</span>
+    <span class="text-primary font-semibold">Datos personales</span>
+  </nav>
+
+  <!-- Page Title + Step badge -->
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
+    <div class="border-l-4 border-[#d0a600] pl-4">
+      <h1 class="font-heading font-bold text-2xl text-primary">Pre-inscripción al Examen</h1>
+      <p class="text-on-surface-variant text-sm mt-0.5" id="exam-label">Saber 11° · Convocatoria 2024-1</p>
+    </div>
+    <span class="bg-[#003366] text-white font-heading font-bold text-sm px-4 py-1.5 rounded-full">Paso 2 de 5</span>
+  </div>
+
+  <!-- Stepper -->
+  <div class="bg-white rounded-xl card-shadow border border-outline-variant mb-6 overflow-hidden" role="navigation" aria-label="Pasos del proceso">
+    <div class="flex" role="list">
+      <!-- Step 1: done -->
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-[#f3f4f5] border-r border-outline-variant" role="listitem">
+        <span class="material-symbols-outlined text-[#2E7D32] text-xl">check_circle</span>
+        <span class="font-semibold text-sm text-[#2E7D32] hidden sm:inline">1. Examen</span>
+      </div>
+      <!-- Step 2: active -->
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-white border-b-4 border-[#0066CC] border-r border-r-outline-variant" role="listitem" aria-current="step">
+        <div class="w-6 h-6 rounded-full bg-[#0066CC] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">2</div>
+        <span class="font-bold text-sm text-[#0066CC] hidden sm:inline">Datos personales</span>
+      </div>
+      <!-- Step 3 -->
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-[#f3f4f5] border-r border-outline-variant opacity-60" role="listitem">
+        <div class="w-6 h-6 rounded-full bg-[#737780] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">3</div>
+        <span class="font-semibold text-sm hidden sm:inline">Información académica</span>
+      </div>
+      <!-- Step 4 -->
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-[#f3f4f5] border-r border-outline-variant opacity-60" role="listitem">
+        <div class="w-6 h-6 rounded-full bg-[#737780] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">4</div>
+        <span class="font-semibold text-sm hidden sm:inline">Sede y municipio</span>
+      </div>
+      <!-- Step 5 -->
+      <div class="flex-1 flex items-center justify-center gap-2 py-4 px-2 bg-[#f3f4f5] opacity-60" role="listitem">
+        <div class="w-6 h-6 rounded-full bg-[#737780] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">5</div>
+        <span class="font-semibold text-sm hidden sm:inline">Confirmación</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Card -->
+  <div class="bg-white rounded-xl card-shadow border border-outline-variant p-6 md:p-10">
+    <div class="max-w-3xl mx-auto space-y-8">
+
+      <!-- Pre-filled notice -->
+      <div class="flex items-start gap-3 bg-[#d4e3ff]/40 border border-[#a4c9ff] rounded-lg p-4">
+        <span class="material-symbols-outlined text-[#2a609d] text-xl flex-shrink-0">auto_awesome</span>
+        <p class="text-sm text-[#001c39]">Algunos datos han sido pre-llenados desde su perfil. Por favor verifique que toda la información sea correcta antes de continuar.</p>
+      </div>
+
+      <!-- Section: Datos de contacto -->
+      <section aria-labelledby="sec-contacto">
+        <div class="flex items-center gap-2 mb-5 pb-2 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">contact_mail</span>
+          <h2 id="sec-contacto" class="font-heading font-semibold text-lg text-primary">Datos de contacto</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label for="email-c" class="block font-semibold text-sm text-text-body mb-1">Correo electrónico <span class="text-error">*</span></label>
+            <input id="email-c" type="email" value="john.doe@email.com" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+            <p class="text-xs text-on-surface-variant mt-1">Use preferiblemente su correo de la institución.</p>
+          </div>
+          <div>
+            <label for="email-c2" class="block font-semibold text-sm text-text-body mb-1">Confirmar correo <span class="text-error">*</span></label>
+            <input id="email-c2" type="email" value="john.doe@email.com" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+          </div>
+          <div>
+            <label for="cel-c" class="block font-semibold text-sm text-text-body mb-1">Número de celular <span class="text-error">*</span></label>
+            <input id="cel-c" type="tel" value="3001234567" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+            <p class="text-xs text-on-surface-variant mt-1">10 dígitos sin espacios.</p>
+          </div>
+          <div>
+            <label for="tel-c" class="block font-semibold text-sm text-text-body mb-1">Teléfono fijo <span class="font-normal text-on-surface-variant">(opcional)</span></label>
+            <input id="tel-c" type="tel" placeholder="601 000 0000" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Dirección de residencia -->
+      <section aria-labelledby="sec-dir">
+        <div class="flex items-center gap-2 mb-5 pb-2 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">home_pin</span>
+          <h2 id="sec-dir" class="font-heading font-semibold text-lg text-primary">Dirección de residencia</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-5">
+          <div>
+            <label for="dir-c" class="block font-semibold text-sm text-text-body mb-1">Dirección actual <span class="text-error">*</span></label>
+            <input id="dir-c" type="text" value="Calle 45 # 26-50, Apto 301, Chapinero" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+            <p class="text-xs text-on-surface-variant mt-1">Incluya nombre de barrio y cualquier indicación adicional.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label for="depto-c" class="block font-semibold text-sm text-text-body mb-1">Departamento <span class="text-error">*</span></label>
+              <select id="depto-c" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white" aria-required="true">
+                <option value="bogota" selected>Bogotá D.C.</option>
+                <option value="antioquia">Antioquia</option>
+                <option value="valle">Valle del Cauca</option>
+              </select>
+            </div>
+            <div>
+              <label for="muni-c" class="block font-semibold text-sm text-text-body mb-1">Municipio / Ciudad <span class="text-error">*</span></label>
+              <select id="muni-c" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white" aria-required="true">
+                <option value="bogota" selected>Bogotá D.C.</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Grupo Poblacional (accessibility) -->
+      <section aria-labelledby="sec-acc">
+        <div class="flex items-center gap-2 mb-5 pb-2 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">accessibility_new</span>
+          <h2 id="sec-acc" class="font-heading font-semibold text-lg text-primary">Necesidades especiales</h2>
+        </div>
+        <p class="text-sm text-on-surface-variant mb-4">Si requiere alguna adaptación especial para la aplicación del examen, selecciónela a continuación.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="flex items-start gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-[#f3f4f5] transition-colors">
+            <input type="checkbox" class="w-4 h-4 mt-0.5 text-[#0066CC] border-[#CCCCCC] rounded focus:ring-[#0066CC]"/>
+            <div>
+              <p class="font-semibold text-sm text-text-body">Discapacidad visual</p>
+              <p class="text-xs text-on-surface-variant">Material en Braille o ampliado</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-[#f3f4f5] transition-colors">
+            <input type="checkbox" class="w-4 h-4 mt-0.5 text-[#0066CC] border-[#CCCCCC] rounded focus:ring-[#0066CC]"/>
+            <div>
+              <p class="font-semibold text-sm text-text-body">Discapacidad auditiva</p>
+              <p class="text-xs text-on-surface-variant">Intérprete de señas</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-[#f3f4f5] transition-colors">
+            <input type="checkbox" class="w-4 h-4 mt-0.5 text-[#0066CC] border-[#CCCCCC] rounded focus:ring-[#0066CC]"/>
+            <div>
+              <p class="font-semibold text-sm text-text-body">Discapacidad motora</p>
+              <p class="text-xs text-on-surface-variant">Sede con acceso especial</p>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 p-4 border border-outline-variant rounded-lg cursor-pointer hover:bg-[#f3f4f5] transition-colors">
+            <input type="checkbox" class="w-4 h-4 mt-0.5 text-[#0066CC] border-[#CCCCCC] rounded focus:ring-[#0066CC]"/>
+            <div>
+              <p class="font-semibold text-sm text-text-body">Tiempo adicional</p>
+              <p class="text-xs text-on-surface-variant">Requiere tiempo extendido</p>
+            </div>
+          </label>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="mt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+    <a href="oferta_examenes.html" class="flex items-center gap-2 border border-[#003366] text-[#003366] font-heading font-bold px-6 py-3 rounded-lg hover:bg-[#003366]/5 transition-colors text-sm">
+      <span class="material-symbols-outlined text-base">arrow_back</span>
+      Volver
+    </a>
+    <a href="preinscripcion_academica.html" class="flex items-center gap-2 bg-[#FFCC00] text-[#001e40] font-heading font-bold px-8 py-3 rounded-lg hover:bg-[#f1c100] transition-all shadow-sm text-sm">
+      Continuar
+      <span class="material-symbols-outlined text-base">arrow_forward</span>
+    </a>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+    <nav class="flex gap-4 text-xs">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Términos y condiciones</a>
+      <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline">Centro de ayuda</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Populate exam label from URL param
+const params = new URLSearchParams(window.location.search);
+const examMap = { saber11:'Saber 11° · Convocatoria 2024-1', presaber:'Pre-Saber · Convocatoria 2024-1', validacion:'Validación del Bachillerato · 2024-1', saberpro:'Saber Pro · Convocatoria 2024-1', sabertyt:'Saber TyT · Convocatoria 2024-1' };
+const exam = params.get('examen');
+if (exam && examMap[exam]) document.getElementById('exam-label').textContent = examMap[exam];
+</script>
+</body>
+</html>

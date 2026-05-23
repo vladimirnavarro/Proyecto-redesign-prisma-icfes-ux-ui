@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mi Citación - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',secondary:'#2a609d','tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','tertiary-container':'#d0a600','focus-blue':'#0066CC',surface:'#FFFFFF',background:'#f8f9fa','surface-container':'#edeeef','surface-container-low':'#f3f4f5','surface-container-high':'#e7e8e9','surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1',outline:'#737780','on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333','control-gray':'#555555',success:'#2E7D32',error:'#C62828','error-container':'#ffdad6','on-error-container':'#93000a','secondary-container':'#8bbbfe','on-secondary-container':'#054a86'},fontFamily:{sans:['Open Sans','sans-serif'],heading:['Montserrat','sans-serif']}}}}
+</script>
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+  .card-shadow{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1 hover:underline" aria-label="Accesibilidad"><span class="material-symbols-outlined text-lg">accessibility_new</span><span class="hidden sm:inline">Accesibilidad</span></button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="bg-[#003366] shadow-md w-full sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+      </a>
+      <div class="hidden md:flex gap-1">
+        <a href="oferta_examenes.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Inscripción</a>
+        <a href="citacion.html" class="text-white bg-white/20 px-3 py-2 rounded-lg font-bold text-sm border-b-2 border-[#ffe08b]" aria-current="page">Citación</a>
+        <a href="#" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Resultados</a>
+        <a href="perfil.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Mi Perfil</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="text-right hidden sm:block">
+        <p class="text-white font-semibold text-sm">John Doe</p>
+        <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
+      </div>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-6xl mx-auto w-full px-6 py-8" role="main">
+
+  <!-- Breadcrumb + Actions -->
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-5 gap-3">
+    <nav aria-label="Miga de pan" class="text-xs text-on-surface-variant">
+      <a href="dashboard.html" class="hover:text-[#0066CC]">Inicio</a>
+      <span class="mx-2">/</span>
+      <span class="text-primary font-semibold">Mi Citación</span>
+    </nav>
+    <div class="flex gap-2">
+      <button onclick="window.print()" class="flex items-center gap-2 bg-[#003366] text-white font-heading font-bold px-5 py-2.5 rounded-lg hover:bg-[#001e40] transition-colors text-sm">
+        <span class="material-symbols-outlined text-base">print</span>
+        Imprimir
+      </button>
+      <button class="flex items-center gap-2 border border-[#003366] text-[#003366] font-heading font-bold px-5 py-2.5 rounded-lg hover:bg-[#003366]/5 transition-colors text-sm">
+        <span class="material-symbols-outlined text-base">download</span>
+        Descargar
+      </button>
+    </div>
+  </div>
+
+  <!-- Page Title -->
+  <div class="mb-6 border-l-4 border-[#d0a600] pl-4">
+    <h1 class="font-heading font-bold text-2xl text-primary">Consultar Citación</h1>
+    <p class="text-on-surface-variant text-sm mt-1">Verifica los detalles de tu examen y descarga tu documento oficial.</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- Citation Card -->
+    <div class="lg:col-span-7 space-y-5">
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant overflow-hidden">
+        <!-- Card Header -->
+        <div class="bg-[#003366] p-5 flex items-center justify-between">
+          <div>
+            <h2 class="font-heading font-bold text-lg text-white">Mi citación</h2>
+            <p class="text-[#799dd6] text-sm">Saber 11° – Convocatoria 2024-1</p>
+          </div>
+          <span class="bg-[#ffe08b] text-[#241a00] font-heading font-bold text-xs px-3 py-1 rounded-full uppercase tracking-tight">Activa</span>
+        </div>
+
+        <div class="p-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+
+            <!-- Date -->
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#f3f4f5] border border-[#e7e8e9]">
+              <div class="w-10 h-10 bg-[#003366]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[#003366] text-2xl">calendar_month</span>
+              </div>
+              <div>
+                <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Fecha</p>
+                <p class="font-heading font-bold text-base text-primary">12 de octubre, 2024</p>
+              </div>
+            </div>
+
+            <!-- Time -->
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#f3f4f5] border border-[#e7e8e9]">
+              <div class="w-10 h-10 bg-[#003366]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[#003366] text-2xl">schedule</span>
+              </div>
+              <div>
+                <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Hora de presentación</p>
+                <p class="font-heading font-bold text-base text-primary">7:00 AM</p>
+                <p class="text-xs text-on-surface-variant">Llegue 30 min antes</p>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#f3f4f5] border border-[#e7e8e9]">
+              <div class="w-10 h-10 bg-[#003366]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[#003366] text-2xl">location_on</span>
+              </div>
+              <div>
+                <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Sede</p>
+                <p class="font-heading font-bold text-base text-primary">Universidad Nacional</p>
+                <p class="text-xs text-on-surface-variant">Bogotá D.C.</p>
+                <p class="text-xs text-on-surface-variant">Carrera 45 # 26-85</p>
+              </div>
+            </div>
+
+            <!-- Room -->
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[#f3f4f5] border border-[#e7e8e9]">
+              <div class="w-10 h-10 bg-[#003366]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[#003366] text-2xl">school</span>
+              </div>
+              <div>
+                <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Salón asignado</p>
+                <p class="font-heading font-bold text-base text-primary">402</p>
+                <p class="text-xs text-on-surface-variant">Edificio 401</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="rounded-xl overflow-hidden h-56 relative border border-outline-variant bg-[#e1e3e4]">
+            <!-- Static map placeholder -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-on-surface-variant">
+              <span class="material-symbols-outlined text-5xl mb-2 opacity-40">map</span>
+              <p class="text-sm font-semibold opacity-60">Universidad Nacional de Colombia</p>
+              <p class="text-xs opacity-50">Carrera 45 # 26-85, Bogotá D.C.</p>
+            </div>
+            <!-- "Get directions" chip -->
+            <div class="absolute bottom-3 left-3 bg-white rounded-lg shadow-md px-3 py-2 flex items-center gap-2 text-sm font-semibold text-[#0066CC] cursor-pointer hover:shadow-lg transition-shadow">
+              <span class="material-symbols-outlined text-base">directions</span>
+              Cómo llegar
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidate summary -->
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant p-5">
+        <div class="flex items-center gap-2 mb-4 pb-3 border-b border-[#f3f4f5]">
+          <span class="material-symbols-outlined text-primary text-xl">person</span>
+          <h3 class="font-heading font-semibold text-base text-primary">Datos del candidato</h3>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+          <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Nombre</p><p class="font-semibold">JOHN DOE</p></div>
+          <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Documento</p><p class="font-semibold">CC 1.000.123.456</p></div>
+          <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Examen</p><p class="font-semibold">Saber 11°</p></div>
+          <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">No. de registro</p><p class="font-mono font-semibold">SB11-2024-089234</p></div>
+          <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Puesto</p><p class="font-semibold">15</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructions Sidebar -->
+    <div class="lg:col-span-5">
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant p-6 h-auto">
+        <div class="flex items-center gap-2 mb-5 pb-3 border-b border-[#f3f4f5]">
+          <span class="material-symbols-outlined text-error text-xl" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24">warning</span>
+          <h2 class="font-heading font-semibold text-base text-primary">Instrucciones importantes</h2>
+        </div>
+        <ul class="space-y-4" role="list">
+          <li class="flex gap-3" role="listitem">
+            <div class="w-8 h-8 rounded-full bg-[#ffdad6] flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-[#C62828] text-sm">phone_disabled</span>
+            </div>
+            <p class="text-sm leading-relaxed">Está prohibido el uso de teléfonos celulares o dispositivos electrónicos durante la prueba.</p>
+          </li>
+          <li class="flex gap-3" role="listitem">
+            <div class="w-8 h-8 rounded-full bg-[#d4e3ff] flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-[#054a86] text-sm">badge</span>
+            </div>
+            <p class="text-sm leading-relaxed">Presentar documento de identidad <strong>original y vigente</strong> (Cédula de ciudadanía o Tarjeta de identidad).</p>
+          </li>
+          <li class="flex gap-3" role="listitem">
+            <div class="w-8 h-8 rounded-full bg-[#d4e3ff] flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-[#054a86] text-sm">edit</span>
+            </div>
+            <p class="text-sm leading-relaxed">Llevar <strong>lápiz de mina negra No. 2</strong>, tajalápiz y borrador de nata.</p>
+          </li>
+          <li class="flex gap-3" role="listitem">
+            <div class="w-8 h-8 rounded-full bg-[#d4e3ff] flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-[#054a86] text-sm">alarm</span>
+            </div>
+            <p class="text-sm leading-relaxed">Llegar <strong>al menos 30 minutos antes</strong> de la hora citada para el proceso de ingreso.</p>
+          </li>
+          <li class="flex gap-3" role="listitem">
+            <div class="w-8 h-8 rounded-full bg-[#d4e3ff] flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-[#054a86] text-sm">no_food</span>
+            </div>
+            <p class="text-sm leading-relaxed">No se permite el ingreso de alimentos, bebidas ni mochilas al salón de examen.</p>
+          </li>
+        </ul>
+
+        <!-- Support link -->
+        <div class="mt-6 p-4 bg-[#f3f4f5] rounded-lg border-l-4 border-[#0066CC]">
+          <p class="font-heading font-semibold text-sm text-primary mb-1">¿Necesitas ayuda?</p>
+          <p class="text-xs text-on-surface-variant mb-2">Si tienes inconvenientes con tu citación, contáctanos.</p>
+          <a href="ayuda.html" class="text-[#0066CC] font-semibold text-sm flex items-center gap-1 hover:underline">
+            Contactar soporte <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+    <nav class="flex gap-4 text-xs">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Términos y condiciones</a>
+      <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline">Centro de ayuda</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

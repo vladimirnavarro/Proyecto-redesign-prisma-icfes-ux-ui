@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mi Perfil - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',
+      'on-primary-container':'#799dd6',secondary:'#2a609d','on-secondary':'#ffffff',
+      'tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','focus-blue':'#0066CC',
+      'on-secondary-fixed-variant':'#004883','surface':'#FFFFFF','background':'#f8f9fa',
+      'surface-container':'#edeeef','surface-container-low':'#f3f4f5',
+      'surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1','outline':'#737780',
+      'on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333',
+      'success':'#2E7D32','error':'#C62828','border-default':'#CCCCCC',
+      'secondary-fixed':'#d4e3ff','on-secondary-fixed':'#001c39',
+    },
+    fontFamily: { sans:['Open Sans','sans-serif'], heading:['Montserrat','sans-serif'] }
+  }}
+}
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align:middle; }
+  .card-shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  input:focus, select:focus { outline: none; }
+  .tab-btn { transition: all 0.2s; }
+  .tab-btn.active { background: #003366; color: white; }
+  .tab-btn:not(.active) { color: #43474f; background: transparent; }
+  .tab-btn:not(.active):hover { background: #edeeef; }
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1" aria-label="Accesibilidad">
+      <span class="material-symbols-outlined text-lg">accessibility_new</span>
+    </button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="bg-[#003366] shadow-md w-full sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+      </a>
+      <div class="hidden md:flex gap-1">
+        <a href="oferta_examenes.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Inscripción</a>
+        <a href="citacion.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Citación</a>
+        <a href="#" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Resultados</a>
+        <a href="perfil.html" class="text-white bg-white/20 px-3 py-2 rounded-lg font-bold text-sm border-b-2 border-[#ffe08b]" aria-current="page">Mi Perfil</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="text-right hidden sm:block">
+        <p class="text-white font-semibold text-sm">John Doe</p>
+        <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
+      </div>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-6xl mx-auto w-full px-6 py-8" role="main">
+  <!-- Breadcrumb -->
+  <nav aria-label="Miga de pan" class="text-xs text-on-surface-variant mb-4">
+    <a href="dashboard.html" class="hover:text-[#0066CC]">Inicio</a>
+    <span class="mx-2">/</span>
+    <span class="text-primary font-semibold">Mi Perfil</span>
+  </nav>
+
+  <!-- Page Title -->
+  <div class="mb-6 border-l-4 border-[#d0a600] pl-4">
+    <h1 class="font-heading font-bold text-2xl text-primary">Mi Perfil</h1>
+    <p class="text-on-surface-variant text-sm mt-1">Consulte y actualice su información personal.</p>
+  </div>
+
+  <!-- Success alert (hidden) -->
+  <div id="success-alert" class="hidden mb-5 p-4 bg-[#e8f5e9] border border-[#a5d6a7] rounded-lg flex items-center gap-3" role="alert">
+    <span class="material-symbols-outlined text-success text-xl">check_circle</span>
+    <p class="text-success font-semibold text-sm">Información actualizada correctamente.</p>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-8">
+    <!-- Left: Profile Summary -->
+    <aside class="w-full lg:w-72 flex-shrink-0 space-y-4">
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant p-6 text-center">
+        <div class="w-20 h-20 rounded-full bg-[#d4e3ff] flex items-center justify-center mx-auto mb-3">
+          <span class="material-symbols-outlined text-[#2a609d] text-4xl">person</span>
+        </div>
+        <h2 class="font-heading font-bold text-lg text-text-dark">John Doe</h2>
+        <p class="text-on-surface-variant text-sm">CC 1.000.123.456</p>
+        <span class="inline-block mt-2 bg-[#d4e3ff] text-[#054a86] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-tight">Persona Natural</span>
+        <div class="mt-4 pt-4 border-t border-outline-variant text-left space-y-2 text-sm">
+          <div class="flex items-center gap-2 text-on-surface-variant">
+            <span class="material-symbols-outlined text-base">email</span>
+            <span>john.doe@email.com</span>
+          </div>
+          <div class="flex items-center gap-2 text-on-surface-variant">
+            <span class="material-symbols-outlined text-base">phone</span>
+            <span>300 123 4567</span>
+          </div>
+          <div class="flex items-center gap-2 text-on-surface-variant">
+            <span class="material-symbols-outlined text-base">location_on</span>
+            <span>Bogotá D.C.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile menu links -->
+      <nav class="bg-white rounded-xl card-shadow border border-outline-variant overflow-hidden" aria-label="Secciones del perfil">
+        <button onclick="showTab('datos')" id="menu-datos" class="tab-btn active w-full text-left px-5 py-3 font-semibold text-sm flex items-center gap-3">
+          <span class="material-symbols-outlined text-xl">person</span> Datos personales
+        </button>
+        <button onclick="showTab('contacto')" id="menu-contacto" class="tab-btn w-full text-left px-5 py-3 font-semibold text-sm flex items-center gap-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-xl">contact_phone</span> Contacto y dirección
+        </button>
+        <button onclick="showTab('documento')" id="menu-documento" class="tab-btn w-full text-left px-5 py-3 font-semibold text-sm flex items-center gap-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-xl">badge</span> Actualizar documento
+        </button>
+        <button onclick="showTab('seguridad')" id="menu-seguridad" class="tab-btn w-full text-left px-5 py-3 font-semibold text-sm flex items-center gap-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-xl">lock</span> Seguridad y contraseña
+        </button>
+        <a href="ayuda.html" class="w-full text-left px-5 py-3 font-semibold text-sm flex items-center gap-3 border-t border-outline-variant text-on-surface-variant hover:bg-[#edeeef] transition-colors">
+          <span class="material-symbols-outlined text-xl">help</span> Centro de ayuda
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Right: Tab Panels -->
+    <div class="flex-grow">
+
+      <!-- Tab: Datos personales -->
+      <div id="tab-datos" class="bg-white rounded-xl card-shadow border border-outline-variant p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6 pb-3 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">person</span>
+          <h2 class="font-heading font-semibold text-lg text-primary">Datos personales</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Primer nombre</label>
+            <input type="text" value="John" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Segundo nombre</label>
+            <input type="text" value="" placeholder="Opcional" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Primer apellido</label>
+            <input type="text" value="Doe" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Segundo apellido</label>
+            <input type="text" value="" placeholder="Opcional" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Fecha de nacimiento</label>
+            <input type="date" value="2000-05-15" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Género</label>
+            <select class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white">
+              <option value="m" selected>Masculino</option>
+              <option value="f">Femenino</option>
+              <option value="nb">No binario</option>
+              <option value="nd">Prefiero no decir</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Tipo de documento</label>
+            <input type="text" value="Cédula de ciudadanía" readonly class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] bg-[#f3f4f5] text-on-surface-variant text-sm cursor-not-allowed"/>
+            <p class="text-xs text-on-surface-variant mt-1">Para cambiar su documento, use la sección "Actualizar documento".</p>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Número de documento</label>
+            <input type="text" value="1000123456" readonly class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] bg-[#f3f4f5] text-on-surface-variant text-sm cursor-not-allowed"/>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <button onclick="showSuccess()" class="bg-[#FFCC00] text-[#001e40] font-heading font-bold px-8 py-3 rounded-lg hover:bg-[#f1c100] transition-all shadow-sm flex items-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-base">save</span>
+            Guardar cambios
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab: Contacto -->
+      <div id="tab-contacto" class="hidden bg-white rounded-xl card-shadow border border-outline-variant p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6 pb-3 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">contact_phone</span>
+          <h2 class="font-heading font-semibold text-lg text-primary">Contacto y dirección de residencia</h2>
+        </div>
+        <div class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label class="block font-semibold text-sm text-text-body mb-1">Correo electrónico</label>
+              <input type="email" value="john.doe@email.com" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+            </div>
+            <div>
+              <label class="block font-semibold text-sm text-text-body mb-1">Número de celular</label>
+              <input type="tel" value="3001234567" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+            </div>
+            <div>
+              <label class="block font-semibold text-sm text-text-body mb-1">Teléfono fijo <span class="font-normal text-on-surface-variant">(opcional)</span></label>
+              <input type="tel" placeholder="601 000 0000" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+            </div>
+          </div>
+          <hr class="border-outline-variant"/>
+          <h3 class="font-heading font-semibold text-base text-primary flex items-center gap-2">
+            <span class="material-symbols-outlined text-xl">home_pin</span> Dirección de residencia
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="sm:col-span-2">
+              <label class="block font-semibold text-sm text-text-body mb-1">Dirección actual</label>
+              <input type="text" value="Calle 45 # 26-50, Apto 301, Chapinero" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+              <p class="text-xs text-on-surface-variant mt-1">Incluya nombre de barrio e indicaciones adicionales.</p>
+            </div>
+            <div>
+              <label class="block font-semibold text-sm text-text-body mb-1">Departamento</label>
+              <select class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white">
+                <option value="bogota" selected>Bogotá D.C.</option>
+                <option value="antioquia">Antioquia</option>
+                <option value="valle">Valle del Cauca</option>
+                <option value="atlantico">Atlántico</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold text-sm text-text-body mb-1">Municipio / Ciudad</label>
+              <select class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white">
+                <option value="bogota" selected>Bogotá D.C.</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <button onclick="showSuccess()" class="bg-[#FFCC00] text-[#001e40] font-heading font-bold px-8 py-3 rounded-lg hover:bg-[#f1c100] transition-all shadow-sm flex items-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-base">save</span>
+            Guardar cambios
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab: Actualizar documento -->
+      <div id="tab-documento" class="hidden bg-white rounded-xl card-shadow border border-outline-variant p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6 pb-3 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">badge</span>
+          <h2 class="font-heading font-semibold text-lg text-primary">Actualizar documento de identidad</h2>
+        </div>
+
+        <!-- Info box -->
+        <div class="flex items-start gap-3 bg-[#fff8e1] border border-[#ffe08b] rounded-lg p-4 mb-6">
+          <span class="material-symbols-outlined text-[#745b00] text-xl flex-shrink-0">info</span>
+          <div class="text-sm">
+            <p class="font-semibold text-[#4f3d00] mb-1">Actualización de Tarjeta de Identidad a Cédula de Ciudadanía</p>
+            <p class="text-[#584400]">Cuando cumpla 18 años o haya obtenido su cédula, puede actualizar su documento aquí. Este proceso requiere verificación manual por parte del ICFES y puede tardar hasta 3 días hábiles.</p>
+          </div>
+        </div>
+
+        <div class="space-y-5">
+          <div class="p-4 bg-[#f3f4f5] rounded-lg border border-outline-variant">
+            <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-1">Documento actual</p>
+            <p class="font-semibold text-text-body">Cédula de ciudadanía · 1.000.123.456</p>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Nuevo tipo de documento <span class="text-error">*</span></label>
+            <select class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white">
+              <option value="">Seleccione nuevo tipo</option>
+              <option value="cc">Cédula de ciudadanía</option>
+              <option value="ce">Cédula de extranjería</option>
+              <option value="ppt">Permiso por Protección Temporal</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Nuevo número de documento <span class="text-error">*</span></label>
+            <input type="text" placeholder="Sin puntos ni espacios" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-2">Cargar imagen del documento <span class="text-error">*</span></label>
+            <div class="border-2 border-dashed border-[#c3c6d1] rounded-lg p-8 text-center hover:border-[#0066CC] transition-colors cursor-pointer bg-[#f8f9fa]" onclick="document.getElementById('file-doc').click()">
+              <span class="material-symbols-outlined text-outline text-4xl mb-2 block">upload_file</span>
+              <p class="font-semibold text-sm text-on-surface-variant">Haga clic para cargar o arrastre el archivo aquí</p>
+              <p class="text-xs text-on-surface-variant mt-1">PDF, JPG o PNG · Máximo 5MB</p>
+              <input id="file-doc" type="file" accept=".pdf,.jpg,.jpeg,.png" class="hidden"/>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 flex justify-end gap-3">
+          <button class="border border-[#003366] text-[#003366] font-heading font-bold px-6 py-3 rounded-lg hover:bg-[#003366]/5 transition-colors text-sm">
+            Cancelar
+          </button>
+          <button onclick="showSuccess()" class="bg-[#003366] text-white font-heading font-bold px-8 py-3 rounded-lg hover:bg-[#001e40] transition-all shadow-sm flex items-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-base">send</span>
+            Enviar solicitud
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab: Seguridad -->
+      <div id="tab-seguridad" class="hidden bg-white rounded-xl card-shadow border border-outline-variant p-6 md:p-8">
+        <div class="flex items-center gap-2 mb-6 pb-3 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">lock</span>
+          <h2 class="font-heading font-semibold text-lg text-primary">Seguridad y contraseña</h2>
+        </div>
+        <div class="space-y-5 max-w-md">
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Contraseña actual <span class="text-error">*</span></label>
+            <div class="relative">
+              <input type="password" placeholder="Contraseña actual" class="w-full px-4 py-3 pr-12 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+              <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline" aria-label="Mostrar contraseña">
+                <span class="material-symbols-outlined text-xl">visibility</span>
+              </button>
+            </div>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Nueva contraseña <span class="text-error">*</span></label>
+            <div class="relative">
+              <input type="password" placeholder="Mínimo 8 caracteres" class="w-full px-4 py-3 pr-12 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+              <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline" aria-label="Mostrar contraseña">
+                <span class="material-symbols-outlined text-xl">visibility</span>
+              </button>
+            </div>
+          </div>
+          <div>
+            <label class="block font-semibold text-sm text-text-body mb-1">Confirmar nueva contraseña <span class="text-error">*</span></label>
+            <div class="relative">
+              <input type="password" placeholder="Repita la nueva contraseña" class="w-full px-4 py-3 pr-12 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm"/>
+              <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline" aria-label="Mostrar contraseña">
+                <span class="material-symbols-outlined text-xl">visibility</span>
+              </button>
+            </div>
+          </div>
+          <button onclick="showSuccess()" class="bg-[#FFCC00] text-[#001e40] font-heading font-bold px-8 py-3 rounded-lg hover:bg-[#f1c100] transition-all shadow-sm flex items-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-base">lock_reset</span>
+            Actualizar contraseña
+          </button>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-outline-variant">
+          <h3 class="font-heading font-semibold text-base text-error mb-3 flex items-center gap-2">
+            <span class="material-symbols-outlined text-xl">warning</span> Zona de riesgo
+          </h3>
+          <p class="text-sm text-on-surface-variant mb-4">Si necesita cerrar sesión en todos sus dispositivos o tiene sospechas de acceso no autorizado, puede revocar todas las sesiones activas.</p>
+          <button class="border border-error text-error font-heading font-bold px-6 py-2.5 rounded-lg hover:bg-red-50 transition-colors text-sm flex items-center gap-2">
+            <span class="material-symbols-outlined text-base">logout</span>
+            Cerrar todas las sesiones
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+    <nav class="flex gap-4 text-xs">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Términos y condiciones</a>
+      <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline">Centro de ayuda</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+function showTab(tabName) {
+  const tabs = ['datos','contacto','documento','seguridad'];
+  tabs.forEach(t => {
+    document.getElementById('tab-' + t).classList.add('hidden');
+    const menuBtn = document.getElementById('menu-' + t);
+    if (menuBtn) menuBtn.classList.remove('active');
+  });
+  document.getElementById('tab-' + tabName).classList.remove('hidden');
+  const activeMenu = document.getElementById('menu-' + tabName);
+  if (activeMenu) activeMenu.classList.add('active');
+}
+
+function showSuccess() {
+  const alert = document.getElementById('success-alert');
+  alert.classList.remove('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => alert.classList.add('hidden'), 4000);
+}
+</script>
+</body>
+</html>

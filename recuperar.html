@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Recuperar Contraseña - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',secondary:'#2a609d','tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','focus-blue':'#0066CC',surface:'#FFFFFF',background:'#f8f9fa','surface-container-low':'#f3f4f5','surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1',outline:'#737780','on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333',success:'#2E7D32',error:'#C62828'},fontFamily:{sans:['Open Sans','sans-serif'],heading:['Montserrat','sans-serif']}}}}
+</script>
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+  .card-shadow{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  input:focus{outline:none;}
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-50">
+  <a href="index.html" class="font-heading font-bold text-white uppercase tracking-wider text-sm hover:underline">GOV.CO</a>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1" aria-label="Accesibilidad"><span class="material-symbols-outlined text-lg">accessibility_new</span></button>
+  </div>
+</header>
+
+<!-- Minimal Nav -->
+<nav class="bg-[#003366] shadow-md w-full z-50">
+  <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+        <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+        <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+        <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+        <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+      </svg>
+      <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+    </a>
+    <a href="login.html" class="text-white/80 hover:text-white text-sm flex items-center gap-1 hover:underline">
+      <span class="material-symbols-outlined text-base">login</span> Iniciar sesión
+    </a>
+  </div>
+</nav>
+
+<main class="flex-grow flex items-center justify-center py-10 px-4" role="main">
+  <div class="w-full max-w-md">
+
+    <!-- Step 1: Email -->
+    <div id="step1" class="bg-white rounded-xl card-shadow border border-outline-variant p-8">
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-[#d4e3ff] rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-[#2a609d] text-3xl">lock_reset</span>
+        </div>
+        <h1 class="font-heading font-bold text-xl text-primary mb-1">Recuperar contraseña</h1>
+        <p class="text-on-surface-variant text-sm">Ingrese su correo o documento de identidad. Le enviaremos un código de verificación.</p>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label for="recovery-email" class="block font-semibold text-sm text-text-body mb-1">Correo electrónico o número de documento</label>
+          <input id="recovery-email" type="text" placeholder="ejemplo@correo.com o número de documento"
+            class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+        </div>
+        <button onclick="goStep2()" class="w-full bg-[#FFCC00] text-[#001e40] font-heading font-bold py-3.5 rounded-lg hover:bg-[#f1c100] transition-all shadow-sm flex items-center justify-center gap-2 text-sm">
+          Enviar código de verificación
+          <span class="material-symbols-outlined text-base">send</span>
+        </button>
+        <a href="login.html" class="w-full flex items-center justify-center gap-2 text-[#003366] font-semibold text-sm hover:underline">
+          <span class="material-symbols-outlined text-base">arrow_back</span>
+          Volver al inicio de sesión
+        </a>
+      </div>
+    </div>
+
+    <!-- Step 2: Code verification (hidden) -->
+    <div id="step2" class="hidden bg-white rounded-xl card-shadow border border-outline-variant p-8">
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-[#e8f5e9] rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-[#2E7D32] text-3xl">mark_email_read</span>
+        </div>
+        <h2 class="font-heading font-bold text-xl text-primary mb-1">Verifique su correo</h2>
+        <p class="text-on-surface-variant text-sm">Ingrese el código de 6 dígitos enviado a <strong id="email-shown">ejemplo@correo.com</strong>.</p>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label for="code" class="block font-semibold text-sm text-text-body mb-1">Código de verificación</label>
+          <input id="code" type="text" maxlength="6" placeholder="000000"
+            class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm text-center font-mono text-xl tracking-widest" aria-required="true"/>
+          <p class="text-xs text-on-surface-variant mt-1">El código expira en <strong>10 minutos</strong>.</p>
+        </div>
+        <button onclick="goStep3()" class="w-full bg-[#FFCC00] text-[#001e40] font-heading font-bold py-3.5 rounded-lg hover:bg-[#f1c100] transition-all shadow-sm text-sm">
+          Verificar código
+        </button>
+        <button class="w-full text-[#0066CC] font-semibold text-sm hover:underline">
+          ¿No recibió el código? Reenviar
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 3: New password (hidden) -->
+    <div id="step3" class="hidden bg-white rounded-xl card-shadow border border-outline-variant p-8">
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-[#ffe08b]/40 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="material-symbols-outlined text-[#745b00] text-3xl">lock</span>
+        </div>
+        <h2 class="font-heading font-bold text-xl text-primary mb-1">Nueva contraseña</h2>
+        <p class="text-on-surface-variant text-sm">Cree una contraseña segura para su cuenta.</p>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label for="new-pw" class="block font-semibold text-sm text-text-body mb-1">Nueva contraseña <span class="text-error">*</span></label>
+          <div class="relative">
+            <input id="new-pw" type="password" placeholder="Mínimo 8 caracteres"
+              class="w-full px-4 py-3 pr-12 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+            <button type="button" onclick="togglePw3('new-pw','icon-np')" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline" aria-label="Mostrar contraseña">
+              <span id="icon-np" class="material-symbols-outlined text-xl">visibility</span>
+            </button>
+          </div>
+        </div>
+        <div>
+          <label for="confirm-pw" class="block font-semibold text-sm text-text-body mb-1">Confirmar contraseña <span class="text-error">*</span></label>
+          <div class="relative">
+            <input id="confirm-pw" type="password" placeholder="Repita la contraseña"
+              class="w-full px-4 py-3 pr-12 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm" aria-required="true"/>
+            <button type="button" onclick="togglePw3('confirm-pw','icon-cp')" class="absolute right-3 top-1/2 -translate-y-1/2 text-outline" aria-label="Mostrar contraseña">
+              <span id="icon-cp" class="material-symbols-outlined text-xl">visibility</span>
+            </button>
+          </div>
+        </div>
+        <button onclick="goLogin()" class="w-full bg-[#FFCC00] text-[#001e40] font-heading font-bold py-3.5 rounded-lg hover:bg-[#f1c100] transition-all shadow-sm flex items-center justify-center gap-2 text-sm">
+          <span class="material-symbols-outlined text-base">check_circle</span>
+          Actualizar contraseña
+        </button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+    <nav class="flex gap-4 text-xs">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+      <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline">Centro de ayuda</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+function goStep2() {
+  const email = document.getElementById('recovery-email').value.trim();
+  if (!email) { alert('Por favor ingrese su correo o documento.'); return; }
+  document.getElementById('email-shown').textContent = email.includes('@') ? email : `documento ${email}`;
+  document.getElementById('step1').classList.add('hidden');
+  document.getElementById('step2').classList.remove('hidden');
+}
+function goStep3() {
+  const code = document.getElementById('code').value.trim();
+  if (code.length < 6) { alert('Por favor ingrese el código completo de 6 dígitos.'); return; }
+  document.getElementById('step2').classList.add('hidden');
+  document.getElementById('step3').classList.remove('hidden');
+}
+function goLogin() {
+  const pw = document.getElementById('new-pw').value;
+  const cpw = document.getElementById('confirm-pw').value;
+  if (pw.length < 8) { alert('La contraseña debe tener al menos 8 caracteres.'); return; }
+  if (pw !== cpw) { alert('Las contraseñas no coinciden.'); return; }
+  window.location.href = 'login.html';
+}
+function togglePw3(inputId, iconId) {
+  const input = document.getElementById(inputId);
+  const icon = document.getElementById(iconId);
+  if (input.type === 'password') { input.type = 'text'; icon.textContent = 'visibility_off'; }
+  else { input.type = 'password'; icon.textContent = 'visibility'; }
+}
+</script>
+</body>
+</html>

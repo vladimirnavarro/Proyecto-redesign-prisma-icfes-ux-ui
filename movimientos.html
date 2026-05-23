@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Consultar Movimientos - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',secondary:'#2a609d','tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','tertiary-container':'#d0a600','focus-blue':'#0066CC',surface:'#FFFFFF',background:'#f8f9fa','surface-container':'#edeeef','surface-container-low':'#f3f4f5','surface-container-high':'#e7e8e9','surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1',outline:'#737780','on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333','control-gray':'#555555',success:'#2E7D32',error:'#C62828','error-container':'#ffdad6','on-error-container':'#93000a'},fontFamily:{sans:['Open Sans','sans-serif'],heading:['Montserrat','sans-serif']}}}}
+</script>
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+  .card-shadow{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1 hover:underline" aria-label="Accesibilidad"><span class="material-symbols-outlined text-lg">accessibility_new</span><span class="hidden sm:inline">Accesibilidad</span></button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="bg-[#003366] shadow-md w-full sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+      </a>
+      <div class="hidden md:flex gap-1">
+        <a href="oferta_examenes.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Inscripción</a>
+        <a href="citacion.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Citación</a>
+        <a href="#" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Resultados</a>
+        <a href="perfil.html" class="text-white bg-white/20 px-3 py-2 rounded-lg font-bold text-sm border-b-2 border-[#ffe08b]" aria-current="page">Mi Perfil</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="text-right hidden sm:block">
+        <p class="text-white font-semibold text-sm">John Doe</p>
+        <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
+      </div>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-6xl mx-auto w-full px-6 py-8" role="main">
+
+  <!-- Breadcrumb + Back -->
+  <div class="flex items-center justify-between mb-5">
+    <a href="dashboard.html" class="flex items-center gap-2 text-[#2a609d] font-semibold text-sm hover:underline group">
+      <span class="material-symbols-outlined text-base group-hover:-translate-x-1 transition-transform">arrow_back</span>
+      Volver al tablero
+    </a>
+    <nav aria-label="Miga de pan" class="text-xs text-on-surface-variant">
+      <a href="dashboard.html" class="hover:text-[#0066CC]">Inicio</a>
+      <span class="mx-2">/</span>
+      <span class="text-primary font-semibold">Movimientos</span>
+    </nav>
+  </div>
+
+  <!-- Page Title -->
+  <div class="mb-6 border-l-4 border-[#d0a600] pl-4">
+    <h1 class="font-heading font-bold text-2xl text-primary">Consultar movimientos</h1>
+    <p class="text-on-surface-variant text-sm mt-1">Historial de pagos y referencias de pago asociados a su proceso.</p>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+
+    <!-- Recaudo -->
+    <section class="bg-white rounded-xl card-shadow border-l-4 border-[#003366] border border-outline-variant p-5" aria-labelledby="recaudo-title">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="material-symbols-outlined text-[#003366] text-xl">payments</span>
+        <h2 id="recaudo-title" class="font-heading font-semibold text-base text-primary">Información de recaudo</h2>
+      </div>
+      <div class="space-y-4">
+        <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+          <span class="font-semibold text-sm text-on-surface-variant self-center">Período ordinario</span>
+          <div>
+            <p class="text-sm">6 ene – 20 feb 2026</p>
+            <p class="font-heading font-bold text-base text-primary mt-0.5">$224.000,00</p>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-[#f3f4f5] grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+          <span class="font-semibold text-sm text-on-surface-variant self-center">Período extraordinario</span>
+          <div>
+            <p class="text-sm">19 feb – 28 feb 2026</p>
+            <p class="font-heading font-bold text-base text-primary mt-0.5">$355.000,00</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Saldo -->
+    <section class="bg-white rounded-xl card-shadow border-l-4 border-[#0066CC] border border-outline-variant p-5" aria-labelledby="saldo-title">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="material-symbols-outlined text-[#0066CC] text-xl">account_balance_wallet</span>
+        <h2 id="saldo-title" class="font-heading font-semibold text-base text-primary">Información de saldo</h2>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-1">Total usado</p>
+          <p class="font-heading font-bold text-xl text-primary">$65.500,00</p>
+        </div>
+        <div>
+          <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-1">Recaudo ordinario</p>
+          <p class="font-heading font-bold text-base">$289.500,00</p>
+        </div>
+        <div>
+          <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-1">Recaudo fuera de tiempo</p>
+          <p class="font-semibold text-base">$0,00</p>
+        </div>
+        <div>
+          <p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-1">Recaudo extraordinario</p>
+          <p class="font-semibold text-base">$0,00</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Movements Table -->
+  <section class="bg-white rounded-xl card-shadow border border-outline-variant overflow-hidden mb-6" aria-labelledby="mov-title">
+
+    <!-- Table Header -->
+    <div class="p-5 border-b border-[#f3f4f5] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-xl">history</span>
+        <h2 id="mov-title" class="font-heading font-semibold text-base text-primary">Información de movimientos</h2>
+      </div>
+      <!-- Legend -->
+      <div class="flex flex-wrap gap-4 text-xs text-on-surface-variant">
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-[#0066CC] text-base">picture_as_pdf</span>Descargar recibo
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-[#d0a600] text-base">warning</span>Va a expirar
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-[#2E7D32] text-base">payments</span>Saldo a favor
+        </span>
+      </div>
+    </div>
+
+    <!-- Responsive Table -->
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse text-sm" role="table" aria-label="Tabla de movimientos">
+        <thead>
+          <tr class="bg-[#003366] text-white">
+            <th class="p-4 text-left font-heading font-semibold text-xs uppercase tracking-tight border-r border-white/10">No. Movimiento</th>
+            <th class="p-4 text-left font-heading font-semibold text-xs uppercase tracking-tight border-r border-white/10">Tipo</th>
+            <th class="p-4 text-right font-heading font-semibold text-xs uppercase tracking-tight border-r border-white/10">Valor total</th>
+            <th class="p-4 text-left font-heading font-semibold text-xs uppercase tracking-tight border-r border-white/10">F. generación</th>
+            <th class="p-4 text-left font-heading font-semibold text-xs uppercase tracking-tight border-r border-white/10">F. pago</th>
+            <th class="p-4 text-center font-heading font-semibold text-xs uppercase tracking-tight border-r border-white/10">Estado</th>
+            <th class="p-4 text-center font-heading font-semibold text-xs uppercase tracking-tight">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1: PAID -->
+          <tr class="bg-white hover:bg-[#f8f9fa] transition-colors border-b border-[#f3f4f5]">
+            <td class="p-4">
+              <button class="text-[#0066CC] font-bold hover:underline font-mono text-xs" onclick="openMovDetail('895310503951')" aria-label="Ver detalle movimiento 895310503951">895310503951</button>
+            </td>
+            <td class="p-4 text-xs text-on-surface-variant font-semibold uppercase tracking-tight">Referencia individual</td>
+            <td class="p-4 text-right font-heading font-bold">$224.000,00</td>
+            <td class="p-4 text-xs">12/02/2026<br/><span class="text-on-surface-variant">Ordinario</span></td>
+            <td class="p-4 text-xs">12/02/2026<br/><span class="text-on-surface-variant">Ordinario</span></td>
+            <td class="p-4 text-center">
+              <span class="inline-flex items-center gap-1 bg-[#e8f5e9] text-[#2E7D32] font-bold text-xs px-3 py-1 rounded-full">
+                <span class="w-1.5 h-1.5 bg-[#2E7D32] rounded-full"></span>PAGADA
+              </span>
+            </td>
+            <td class="p-4 text-center">
+              <button class="p-2 text-[#003366] hover:bg-[#003366]/10 rounded-full transition-colors" aria-label="Descargar comprobante movimiento 895310503951">
+                <span class="material-symbols-outlined text-xl">download</span>
+              </button>
+            </td>
+          </tr>
+          <!-- Row 2: PENDING -->
+          <tr class="bg-[#f8f9fa] hover:bg-[#f3f4f5] transition-colors border-b border-[#f3f4f5]">
+            <td class="p-4">
+              <button class="text-[#0066CC] font-bold hover:underline font-mono text-xs" onclick="openMovDetail('895310503952')" aria-label="Ver detalle movimiento 895310503952">895310503952</button>
+            </td>
+            <td class="p-4 text-xs text-on-surface-variant font-semibold uppercase tracking-tight">Referencia individual</td>
+            <td class="p-4 text-right font-heading font-bold">$355.000,00</td>
+            <td class="p-4 text-xs">15/02/2026<br/><span class="text-on-surface-variant">Extraordinario</span></td>
+            <td class="p-4 text-xs text-on-surface-variant">—</td>
+            <td class="p-4 text-center">
+              <span class="inline-flex items-center gap-1 bg-[#ffdad6] text-[#C62828] font-bold text-xs px-3 py-1 rounded-full">
+                <span class="w-1.5 h-1.5 bg-[#C62828] rounded-full"></span>PENDIENTE
+              </span>
+            </td>
+            <td class="p-4 text-center">
+              <button class="p-2 text-[#003366] hover:bg-[#003366]/10 rounded-full transition-colors" aria-label="Ver documento movimiento 895310503952">
+                <span class="material-symbols-outlined text-xl">description</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Table Footer: summary + pagination -->
+    <div class="p-5 bg-[#f8f9fa] border-t border-[#f3f4f5] flex flex-col md:flex-row justify-between items-center gap-4">
+      <!-- Status summary -->
+      <div class="flex flex-wrap gap-5 text-sm text-on-surface-variant" role="status" aria-label="Resumen de estados">
+        <span class="font-semibold text-on-surface-variant">Estado de movimientos:</span>
+        <span class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center bg-[#003366] text-white rounded-full text-xs font-bold">1</span>
+          <span class="font-semibold text-primary">Cargadas</span>
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center bg-[#e1e3e4] text-[#737780] rounded-full text-xs font-bold">0</span>
+          <span>No pagadas</span>
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center bg-[#e1e3e4] text-[#737780] rounded-full text-xs font-bold">0</span>
+          <span>Anuladas</span>
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="w-6 h-6 flex items-center justify-center bg-[#e1e3e4] text-[#737780] rounded-full text-xs font-bold">0</span>
+          <span>Expiradas</span>
+        </span>
+      </div>
+      <!-- Pagination -->
+      <nav class="flex items-center gap-1" aria-label="Paginación">
+        <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-white transition-colors" aria-label="Primera página"><span class="material-symbols-outlined text-lg">first_page</span></button>
+        <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-white transition-colors" aria-label="Página anterior"><span class="material-symbols-outlined text-lg">chevron_left</span></button>
+        <button class="w-8 h-8 flex items-center justify-center rounded-lg bg-[#003366] text-white font-bold text-sm" aria-label="Página 1" aria-current="page">1</button>
+        <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-white transition-colors" aria-label="Página siguiente"><span class="material-symbols-outlined text-lg">chevron_right</span></button>
+        <button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-white transition-colors" aria-label="Última página"><span class="material-symbols-outlined text-lg">last_page</span></button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Back -->
+  <div class="flex justify-end">
+    <a href="dashboard.html" class="flex items-center gap-2 border border-[#003366] text-[#003366] font-heading font-bold px-6 py-3 rounded-lg hover:bg-[#003366]/5 transition-colors text-sm">
+      <span class="material-symbols-outlined text-base">arrow_back</span>
+      Volver al tablero
+    </a>
+  </div>
+
+</main>
+
+<!-- Movement Detail Modal -->
+<div id="mov-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="bg-white rounded-xl shadow-2xl w-full max-w-md p-6">
+    <div class="flex justify-between items-start mb-5">
+      <h3 id="modal-title" class="font-heading font-bold text-lg text-primary">Detalle del movimiento</h3>
+      <button onclick="closeModal()" class="p-1 hover:bg-[#f3f4f5] rounded-full transition-colors" aria-label="Cerrar">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+    </div>
+    <div id="modal-content" class="space-y-3 text-sm">
+      <!-- filled by JS -->
+    </div>
+    <div class="mt-5 flex gap-3">
+      <button class="flex-1 flex items-center justify-center gap-2 bg-[#003366] text-white font-heading font-bold py-3 rounded-lg hover:bg-[#001e40] transition-colors text-sm">
+        <span class="material-symbols-outlined text-base">download</span>
+        Descargar comprobante
+      </button>
+      <button onclick="closeModal()" class="flex-1 border border-[#003366] text-[#003366] font-heading font-bold py-3 rounded-lg hover:bg-[#003366]/5 transition-colors text-sm">
+        Cerrar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+    <nav class="flex gap-4 text-xs">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Términos y condiciones</a>
+      <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline">Centro de ayuda</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const movData = {
+  '895310503951': {
+    num: '895310503951', tipo: 'Referencia individual', valor: '$224.000,00',
+    fGeneracion: '12/02/2026', fPago: '12/02/2026', estado: 'PAGADA',
+    examen: 'Saber 11° – Convocatoria 2024-1', periodo: 'Ordinario'
+  },
+  '895310503952': {
+    num: '895310503952', tipo: 'Referencia individual', valor: '$355.000,00',
+    fGeneracion: '15/02/2026', fPago: '—', estado: 'PENDIENTE',
+    examen: 'Saber 11° – Convocatoria 2024-1', periodo: 'Extraordinario'
+  }
+};
+
+function openMovDetail(id) {
+  const d = movData[id];
+  if (!d) return;
+  const statusClass = d.estado === 'PAGADA' ? 'bg-[#e8f5e9] text-[#2E7D32]' : 'bg-[#ffdad6] text-[#C62828]';
+  document.getElementById('modal-content').innerHTML = `
+    <div class="grid grid-cols-2 gap-3">
+      <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">No. Movimiento</p><p class="font-mono font-bold">${d.num}</p></div>
+      <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Estado</p><span class="inline-flex items-center gap-1 ${statusClass} font-bold text-xs px-2 py-0.5 rounded-full">${d.estado}</span></div>
+      <div class="col-span-2"><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Examen</p><p class="font-semibold">${d.examen}</p></div>
+      <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Tipo</p><p>${d.tipo}</p></div>
+      <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Período</p><p>${d.periodo}</p></div>
+      <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">F. generación</p><p>${d.fGeneracion}</p></div>
+      <div><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">F. pago</p><p>${d.fPago}</p></div>
+      <div class="col-span-2 pt-2 border-t border-[#f3f4f5]"><p class="text-xs text-on-surface-variant uppercase font-semibold tracking-tight mb-0.5">Valor total</p><p class="font-heading font-extrabold text-xl text-[#003366]">${d.valor}</p></div>
+    </div>`;
+  document.getElementById('mov-modal').classList.remove('hidden');
+}
+function closeModal() {
+  document.getElementById('mov-modal').classList.add('hidden');
+}
+document.getElementById('mov-modal').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('mov-modal')) closeModal();
+});
+</script>
+</body>
+</html>

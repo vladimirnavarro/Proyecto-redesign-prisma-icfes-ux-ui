@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pre-inscripción – Paso 4: Sede y Municipio - PRISMA ICFES</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:'#001e40','primary-container':'#003366','on-primary':'#ffffff',secondary:'#2a609d','tertiary-fixed':'#ffe08b','on-tertiary-fixed':'#241a00','tertiary-container':'#d0a600','focus-blue':'#0066CC',surface:'#FFFFFF',background:'#f8f9fa','surface-container':'#edeeef','surface-container-low':'#f3f4f5','surface-container-highest':'#e1e3e4','outline-variant':'#c3c6d1',outline:'#737780','on-surface':'#191c1d','on-surface-variant':'#43474f','text-body':'#333333',success:'#2E7D32',error:'#C62828','border-default':'#CCCCCC'},fontFamily:{sans:['Open Sans','sans-serif'],heading:['Montserrat','sans-serif']}}}}
+</script>
+<style>
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+  .card-shadow{box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  input:focus,select:focus{outline:none;}
+  .sede-card { transition: all 0.2s ease; cursor: pointer; }
+  .sede-card:hover { border-color:#0066CC; }
+  .sede-card.selected { border-color:#0066CC; background:#f0f6ff; }
+</style>
+</head>
+<body class="bg-background font-sans text-text-body min-h-screen flex flex-col">
+
+<!-- GOV.CO Bar -->
+<header class="bg-[#004883] border-b border-[#003366] flex justify-between items-center h-10 px-6 w-full z-[60]">
+  <span class="font-heading font-bold text-white uppercase tracking-wider text-sm">GOV.CO</span>
+  <div class="flex items-center gap-4">
+    <button class="text-white opacity-90 text-xs flex items-center gap-1" aria-label="Accesibilidad"><span class="material-symbols-outlined text-lg">accessibility_new</span></button>
+    <button class="text-white opacity-90 text-xs" aria-label="Configuración"><span class="material-symbols-outlined text-lg">settings</span></button>
+  </div>
+</header>
+
+<!-- Nav -->
+<nav class="bg-[#003366] shadow-md w-full sticky top-0 z-50" role="navigation" aria-label="Navegación principal">
+  <div class="max-w-6xl mx-auto w-full px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <a href="dashboard.html" class="flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-8 h-6 fill-[#ffe08b]">
+          <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+          <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+          <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+          <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+        </svg>
+        <span class="font-heading font-extrabold text-xl text-white">PRISMA ICFES</span>
+      </a>
+      <div class="hidden md:flex gap-1">
+        <a href="oferta_examenes.html" class="text-white bg-white/20 px-3 py-2 rounded-lg font-bold text-sm border-b-2 border-[#ffe08b]">Inscripción</a>
+        <a href="citacion.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Citación</a>
+        <a href="#" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Resultados</a>
+        <a href="perfil.html" class="text-white/80 hover:text-white hover:bg-white/10 px-3 py-2 rounded-lg font-semibold text-sm transition-all">Mi Perfil</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="text-right hidden sm:block">
+        <p class="text-white font-semibold text-sm">John Doe</p>
+        <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
+      </div>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
+      <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow max-w-6xl mx-auto w-full px-6 py-8" role="main">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Miga de pan" class="text-xs text-on-surface-variant mb-5">
+    <a href="dashboard.html" class="hover:text-[#0066CC]">Inicio</a>
+    <span class="mx-2">/</span>
+    <a href="oferta_examenes.html" class="hover:text-[#0066CC]">Inscripción</a>
+    <span class="mx-2">/</span>
+    <span class="text-primary font-semibold">Sede y municipio</span>
+  </nav>
+
+  <!-- Page Title -->
+  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
+    <div class="border-l-4 border-[#d0a600] pl-4">
+      <h1 class="font-heading font-bold text-2xl text-primary">Pre-inscripción al Examen</h1>
+      <p class="text-on-surface-variant text-sm mt-0.5">Saber 11° · Convocatoria 2024-1</p>
+    </div>
+    <span class="bg-[#003366] text-white font-heading font-bold text-sm px-4 py-1.5 rounded-full">Paso 4 de 5</span>
+  </div>
+
+  <!-- Stepper -->
+  <div class="bg-white rounded-xl card-shadow border border-outline-variant mb-6 overflow-hidden" role="navigation" aria-label="Pasos del proceso">
+    <div class="flex" role="list">
+      <div class="flex-1 flex items-center justify-center gap-1.5 py-4 px-2 bg-[#f3f4f5] border-r border-outline-variant" role="listitem">
+        <span class="material-symbols-outlined text-[#2E7D32] text-xl">check_circle</span>
+        <span class="font-semibold text-xs text-[#2E7D32] hidden sm:inline">1. Examen</span>
+      </div>
+      <div class="flex-1 flex items-center justify-center gap-1.5 py-4 px-2 bg-[#f3f4f5] border-r border-outline-variant" role="listitem">
+        <span class="material-symbols-outlined text-[#2E7D32] text-xl">check_circle</span>
+        <span class="font-semibold text-xs text-[#2E7D32] hidden sm:inline">2. Datos personales</span>
+      </div>
+      <div class="flex-1 flex items-center justify-center gap-1.5 py-4 px-2 bg-[#f3f4f5] border-r border-outline-variant" role="listitem">
+        <span class="material-symbols-outlined text-[#2E7D32] text-xl">check_circle</span>
+        <span class="font-semibold text-xs text-[#2E7D32] hidden sm:inline">3. Inf. académica</span>
+      </div>
+      <div class="flex-1 flex items-center justify-center gap-1.5 py-4 px-2 bg-white border-b-4 border-[#0066CC] border-r border-r-outline-variant" role="listitem" aria-current="step">
+        <div class="w-6 h-6 rounded-full bg-[#0066CC] text-white flex items-center justify-center text-xs font-bold ring-4 ring-[#0066CC]/15 flex-shrink-0">4</div>
+        <span class="font-bold text-xs text-[#0066CC] hidden sm:inline">Sede y municipio</span>
+      </div>
+      <div class="flex-1 flex items-center justify-center gap-1.5 py-4 px-2 bg-[#f3f4f5] opacity-60" role="listitem">
+        <div class="w-6 h-6 rounded-full bg-[#737780] text-white flex items-center justify-center text-xs font-bold flex-shrink-0">5</div>
+        <span class="font-semibold text-xs hidden sm:inline">Confirmación</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Main: sede selection -->
+    <div class="lg:col-span-2 space-y-5">
+
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant p-6">
+        <div class="flex items-center gap-2 mb-5 pb-3 border-b border-outline-variant">
+          <span class="material-symbols-outlined text-primary text-xl">location_on</span>
+          <h2 class="font-heading font-semibold text-lg text-primary">Selección de sede de aplicación</h2>
+        </div>
+        <p class="text-sm text-on-surface-variant mb-5">Indique el departamento y municipio donde desea presentar su examen. El sistema mostrará las sedes disponibles.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div>
+            <label for="depto-s" class="block font-semibold text-sm text-text-body mb-1">Departamento <span class="text-error">*</span></label>
+            <select id="depto-s" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white" aria-required="true">
+              <option value="">Seleccione un departamento</option>
+              <option value="bogota" selected>Bogotá D.C.</option>
+              <option value="antioquia">Antioquia</option>
+              <option value="valle">Valle del Cauca</option>
+            </select>
+          </div>
+          <div>
+            <label for="muni-s" class="block font-semibold text-sm text-text-body mb-1">Municipio / Localidad <span class="text-error">*</span></label>
+            <select id="muni-s" class="w-full px-4 py-3 rounded-lg border border-[#CCCCCC] focus:ring-2 focus:ring-[#0066CC] focus:border-[#0066CC] transition-all text-sm bg-white" aria-required="true">
+              <option value="">Seleccione un municipio</option>
+              <option value="usaquen" selected>Usaquén</option>
+              <option value="suba">Suba</option>
+              <option value="chapinero">Chapinero</option>
+              <option value="kennedy">Kennedy</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Sedes list -->
+        <h3 class="font-heading font-semibold text-sm text-primary mb-3">Sedes disponibles en Usaquén</h3>
+        <div class="space-y-3" role="radiogroup" aria-label="Seleccione una sede">
+
+          <div class="sede-card selected border-2 rounded-xl p-4" onclick="selectSede(this, 'Colegio San José de Usaquén')" role="radio" aria-checked="true" tabindex="0">
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full border-2 border-[#0066CC] flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#0066CC]"></div>
+              </div>
+              <div class="flex-grow">
+                <div class="flex justify-between items-start gap-2">
+                  <h4 class="font-heading font-semibold text-sm text-primary">Colegio San José de Usaquén</h4>
+                  <span class="inline-flex items-center gap-1 bg-[#e8f5e9] text-[#2E7D32] text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0">
+                    <span class="w-1.5 h-1.5 bg-[#2E7D32] rounded-full"></span>Alta
+                  </span>
+                </div>
+                <p class="text-xs text-on-surface-variant mt-0.5">Calle 170 # 15-20, Usaquén</p>
+                <p class="text-xs text-on-surface-variant">Cupos disponibles: 120</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sede-card border-2 border-outline-variant rounded-xl p-4" onclick="selectSede(this, 'I.E.D. Nuevo Horizonte')" role="radio" aria-checked="false" tabindex="0">
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+              </div>
+              <div class="flex-grow">
+                <div class="flex justify-between items-start gap-2">
+                  <h4 class="font-heading font-semibold text-sm text-primary">I.E.D. Nuevo Horizonte</h4>
+                  <span class="inline-flex items-center gap-1 bg-[#fff3e0] text-[#e65100] text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0">
+                    <span class="w-1.5 h-1.5 bg-[#e65100] rounded-full"></span>Pocos cupos
+                  </span>
+                </div>
+                <p class="text-xs text-on-surface-variant mt-0.5">Carrera 8 # 165-45, Usaquén</p>
+                <p class="text-xs text-on-surface-variant">Cupos disponibles: 8</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sede-card border-2 border-outline-variant rounded-xl p-4" onclick="selectSede(this, 'Liceo Femenino de Cundinamarca')" role="radio" aria-checked="false" tabindex="0">
+            <div class="flex items-start gap-4">
+              <div class="w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+              </div>
+              <div class="flex-grow">
+                <div class="flex justify-between items-start gap-2">
+                  <h4 class="font-heading font-semibold text-sm text-primary">Liceo Femenino de Cundinamarca</h4>
+                  <span class="inline-flex items-center gap-1 bg-[#e8f5e9] text-[#2E7D32] text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0">
+                    <span class="w-1.5 h-1.5 bg-[#2E7D32] rounded-full"></span>Media
+                  </span>
+                </div>
+                <p class="text-xs text-on-surface-variant mt-0.5">Calle 163a # 12-10, Usaquén</p>
+                <p class="text-xs text-on-surface-variant">Cupos disponibles: 45</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <a href="preinscripcion_academica.html" class="flex items-center gap-2 border border-[#003366] text-[#003366] font-heading font-bold px-6 py-3 rounded-lg hover:bg-[#003366]/5 transition-colors text-sm">
+          <span class="material-symbols-outlined text-base">arrow_back</span>
+          Volver
+        </a>
+        <a href="preinscripcion_pago.html" class="flex items-center gap-2 bg-[#FFCC00] text-[#001e40] font-heading font-bold px-8 py-3 rounded-lg hover:bg-[#f1c100] transition-all shadow-sm text-sm">
+          Continuar al Paso 5
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="space-y-4">
+      <!-- Selected sede summary -->
+      <div class="bg-white rounded-xl card-shadow border border-outline-variant p-5">
+        <h3 class="font-heading font-semibold text-sm text-primary mb-3 flex items-center gap-2">
+          <span class="material-symbols-outlined text-xl">check_circle</span>
+          Sede seleccionada
+        </h3>
+        <div id="selected-sede-display" class="p-3 bg-[#f0f6ff] rounded-lg border border-[#a4c9ff]">
+          <p id="selected-sede-name" class="font-semibold text-sm text-[#0066CC]">Colegio San José de Usaquén</p>
+          <p class="text-xs text-on-surface-variant mt-0.5">Usaquén, Bogotá D.C.</p>
+          <div class="mt-2 pt-2 border-t border-[#c3c6d1] flex items-center gap-1 text-xs font-bold text-[#2E7D32]">
+            <span class="material-symbols-outlined text-sm">check_circle</span>
+            Seleccionado
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="bg-[#d0a600] rounded-xl p-5 text-[#241a00]">
+        <h3 class="font-heading font-bold text-sm mb-3 flex items-center gap-2">
+          <span class="material-symbols-outlined text-xl">info</span>
+          Información importante
+        </h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex gap-2 items-start"><span class="material-symbols-outlined text-base flex-shrink-0 mt-0.5">near_me</span>Elija una sede cercana a su residencia.</li>
+          <li class="flex gap-2 items-start"><span class="material-symbols-outlined text-base flex-shrink-0 mt-0.5">history</span>Los cambios de sede solo son posibles dentro de los plazos establecidos.</li>
+          <li class="flex gap-2 items-start"><span class="material-symbols-outlined text-base flex-shrink-0 mt-0.5">verified</span>La asignación está sujeta a capacidad máxima de cada institución.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#e1e3e4] border-t border-[#c3c6d1] mt-auto">
+  <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p class="text-on-surface-variant text-xs">© 2024 ICFES – Todos los derechos reservados.</p>
+    <nav class="flex gap-4 text-xs">
+      <a href="#" class="text-on-surface-variant hover:text-[#0066CC] underline">Política de privacidad</a>
+      <a href="ayuda.html" class="text-on-surface-variant hover:text-[#0066CC] underline">Centro de ayuda</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+function selectSede(el, name) {
+  document.querySelectorAll('.sede-card').forEach(c => {
+    c.classList.remove('selected');
+    c.classList.add('border-outline-variant');
+    c.classList.remove('border-[#0066CC]');
+    c.setAttribute('aria-checked','false');
+    const dot = c.querySelector('.w-2\\.5');
+    if (dot) dot.classList.remove('bg-[#0066CC]');
+    const ring = c.querySelector('.border-2.rounded-full');
+    if (ring) { ring.classList.remove('border-[#0066CC]'); ring.classList.add('border-outline-variant'); }
+  });
+  el.classList.add('selected');
+  el.setAttribute('aria-checked','true');
+  document.getElementById('selected-sede-name').textContent = name;
+}
+</script>
+</body>
+</html>
