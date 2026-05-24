@@ -73,6 +73,9 @@ tailwind.config = {
         <p class="text-white font-semibold text-sm">John Doe</p>
         <a href="login.html" class="text-[#799dd6] text-xs hover:underline">Cerrar Sesión</a>
       </div>
+      <button onclick="openSidebar()" class="md:hidden p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-sidebar">
+        <span class="material-symbols-outlined text-xl">menu</span>
+      </button>
       <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Contraste"><span class="material-symbols-outlined text-xl">contrast</span></button>
       <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Tamaño de texto"><span class="material-symbols-outlined text-xl">format_size</span></button>
     </div>
@@ -401,5 +404,171 @@ function showSuccess() {
   setTimeout(() => alert.classList.add('hidden'), 4000);
 }
 </script>
+
+<!-- ═══════════════════════════════════════════════════
+     MOBILE SIDEBAR OVERLAY
+     Toggle: openSidebar() / closeSidebar()
+     ═══════════════════════════════════════════════════ -->
+
+<!-- Backdrop -->
+<div id="sidebar-backdrop"
+  class="fixed inset-0 bg-black/60 z-[80] hidden opacity-0 transition-opacity duration-300"
+  onclick="closeSidebar()" aria-hidden="true"></div>
+
+<!-- Drawer -->
+<aside id="mobile-sidebar"
+  class="fixed top-0 left-0 h-full w-72 bg-[#001e40] z-[90] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col shadow-2xl"
+  aria-label="Menú de navegación móvil" role="navigation" aria-hidden="true">
+
+  <!-- Sidebar Header -->
+  <div class="bg-[#003366] px-5 py-4 flex items-center justify-between flex-shrink-0">
+    <a href="dashboard.html" class="flex items-center gap-2" onclick="closeSidebar()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 686.73 619.43" class="w-7 h-5 fill-[#ffe08b]">
+        <polygon points="356.51 186.25 453.13 95.59 453.13 203.17 686.73 203.17 602.19 297.45 356.51 297.45 356.51 186.25"/>
+        <polygon points="206.76 297.45 106.12 210.42 225.55 210.42 225.55 0 330.22 76.15 330.22 297.45 206.76 297.45"/>
+        <polygon points="330.22 433.18 233.6 523.84 233.6 416.26 0 416.26 84.54 321.98 330.22 321.98 330.22 433.18"/>
+        <polygon points="479.96 321.98 580.61 409 461.18 409 461.18 619.43 356.51 543.27 356.51 321.98 479.96 321.98"/>
+      </svg>
+      <span class="font-heading font-extrabold text-lg text-white">PRISMA</span>
+    </a>
+    <button onclick="closeSidebar()" class="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors" aria-label="Cerrar menú">
+      <span class="material-symbols-outlined text-xl">close</span>
+    </button>
+  </div>
+
+  <!-- User info strip -->
+  <div class="px-5 py-4 border-b border-white/10 flex-shrink-0">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-[#2a609d] flex items-center justify-center flex-shrink-0">
+        <span class="material-symbols-outlined text-white text-xl">person</span>
+      </div>
+      <div>
+        <p class="text-white font-heading font-bold text-sm leading-tight">John Doe</p>
+        <p class="text-[#799dd6] text-xs">Persona Natural</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav links -->
+  <nav class="flex-grow overflow-y-auto py-3" aria-label="Navegación principal">
+
+    <div class="px-3 mb-1">
+      <p class="text-[#799dd6] text-xs font-semibold uppercase tracking-widest px-3 py-2">Principal</p>
+    </div>
+
+    <a href="dashboard.html" onclick="closeSidebar()"
+      class="sidebar-link flex items-center gap-3 px-5 py-3.5 text-white/80 hover:text-white hover:bg-white/10 transition-colors group">
+      <span class="material-symbols-outlined text-xl group-hover:text-[#ffe08b] transition-colors">dashboard</span>
+      <span class="font-semibold text-sm">Tablero principal</span>
+    </a>
+
+    <div class="px-3 mt-3 mb-1">
+      <p class="text-[#799dd6] text-xs font-semibold uppercase tracking-widest px-3 py-2">Procesos</p>
+    </div>
+
+    <a href="oferta_examenes.html" onclick="closeSidebar()"
+      class="sidebar-link flex items-center gap-3 px-5 py-3.5 text-white/80 hover:text-white hover:bg-white/10 transition-colors group">
+      <span class="material-symbols-outlined text-xl group-hover:text-[#ffe08b] transition-colors">assignment</span>
+      <span class="font-semibold text-sm">Inscripción a examen</span>
+    </a>
+
+    <a href="consultar_inscripcion.html" onclick="closeSidebar()"
+      class="sidebar-link flex items-center gap-3 px-5 py-3.5 text-white/80 hover:text-white hover:bg-white/10 transition-colors group">
+      <span class="material-symbols-outlined text-xl group-hover:text-[#ffe08b] transition-colors">assignment_turned_in</span>
+      <span class="font-semibold text-sm">Ver mi inscripción</span>
+    </a>
+
+    <a href="citacion.html" onclick="closeSidebar()"
+      class="sidebar-link flex items-center gap-3 px-5 py-3.5 text-white/80 hover:text-white hover:bg-white/10 transition-colors group">
+      <span class="material-symbols-outlined text-xl group-hover:text-[#ffe08b] transition-colors">calendar_month</span>
+      <span class="font-semibold text-sm">Mi citación</span>
+    </a>
+
+    <a href="resultados.html" onclick="closeSidebar()"
+      class="sidebar-link flex items-center gap-3 px-5 py-3.5 text-white/80 hover:text-white hover:bg-white/10 transition-colors group">
+      <span class="material-symbols-outlined text-xl group-hover:text-[#ffe08b] transition-colors">analytics</span>
+      <span class="font-semibold text-sm">Mis resultados</span>
+    </a>
+
+    <a href="movimientos.html" onclick="closeSidebar()"
+      class="sidebar-link flex items-center gap-3 px-5 py-3.5 text-white/80 hover:text-white hover:bg-white/10 transition-colors group">
+      <span class="material-symbols-outlined text-xl group-hover:text-[#ffe08b] transition-colors">payments</span>
+      <span class="font-semibold text-sm">Consultar movimientos</span>
+    </a>
+
+    <div class="px-3 mt-3 mb-1">
+      <p class="text-[#799dd6] text-xs font-semibold uppercase tracking-widest px-3 py-2">Mi cuenta</p>
+    </div>
+
+    <a href="perfil.html" onclick="closeSidebar()"
+      class="sidebar-link flex items-center gap-3 px-5 py-3.5 text-white/80 hover:text-white hover:bg-white/10 transition-colors group">
+      <span class="material-symbols-outlined text-xl group-hover:text-[#ffe08b] transition-colors">manage_accounts</span>
+      <span class="font-semibold text-sm">Mi perfil</span>
+    </a>
+
+    <a href="ayuda.html" onclick="closeSidebar()"
+      class="sidebar-link flex items-center gap-3 px-5 py-3.5 text-white/80 hover:text-white hover:bg-white/10 transition-colors group">
+      <span class="material-symbols-outlined text-xl group-hover:text-[#ffe08b] transition-colors">help</span>
+      <span class="font-semibold text-sm">Centro de ayuda</span>
+    </a>
+
+  </nav>
+
+  <!-- Sidebar Footer -->
+  <div class="px-5 py-4 border-t border-white/10 flex-shrink-0">
+    <a href="login.html"
+      class="flex items-center gap-3 text-white/60 hover:text-white transition-colors group">
+      <span class="material-symbols-outlined text-xl group-hover:text-red-400 transition-colors">logout</span>
+      <span class="font-semibold text-sm">Cerrar sesión</span>
+    </a>
+  </div>
+</aside>
+
+<!-- Sidebar JS -->
+<script>
+(function() {
+  function openSidebar() {
+    var sb = document.getElementById('mobile-sidebar');
+    var bd = document.getElementById('sidebar-backdrop');
+    bd.classList.remove('hidden');
+    requestAnimationFrame(function() {
+      bd.classList.remove('opacity-0');
+      bd.classList.add('opacity-100');
+      sb.classList.remove('-translate-x-full');
+    });
+    sb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSidebar() {
+    var sb = document.getElementById('mobile-sidebar');
+    var bd = document.getElementById('sidebar-backdrop');
+    bd.classList.remove('opacity-100');
+    bd.classList.add('opacity-0');
+    sb.classList.add('-translate-x-full');
+    sb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(function() { bd.classList.add('hidden'); }, 300);
+  }
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeSidebar();
+  });
+  // Highlight current page
+  var links = document.querySelectorAll('.sidebar-link');
+  var cur = window.location.pathname.split('/').pop() || 'index.html';
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href === cur) {
+      link.classList.remove('text-white/80');
+      link.classList.add('text-white', 'bg-white/15', 'border-l-4', 'border-[#ffe08b]', 'pl-4');
+      link.querySelector('.material-symbols-outlined').classList.add('text-[#ffe08b]');
+    }
+  });
+  // Expose globally
+  window.openSidebar = openSidebar;
+  window.closeSidebar = closeSidebar;
+})();
+</script>
+
 </body>
 </html>
